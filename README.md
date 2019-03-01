@@ -1,5 +1,7 @@
 # BASIC RAILS FILE
 
+Lien Prod Heroku : <i> https://troispetitschats.herokuapp.com/ </i>  
+
 Dossier Rails à cloner avec toutes les gems installées. :boom:  
 
 La liste des gems actuelles :
