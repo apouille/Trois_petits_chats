@@ -11,8 +11,9 @@ end
    	author: Faker::Name.name,
    	dimension: "300x500",
    	price: Faker::Number.decimal(2, 2), 
-   	image_url: "http://placekitten.com/500/300"),
+   	image_url: "http://placekitten.com/500/300",
   	description: Faker::Lorem.characters(41),
+    view: rand(0..10)
   )
 end
 
