@@ -1,2 +1,32 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+
+
+<div class="card-body text-info">
+  <div class="card-header">
+	<h1> Produit numéro <%=params[:id]%></h1>
+</div>
+
+<!-- Portfolio List View -->
+<div class= "container">
+<div class="card portfolio-card portfolio-list">
+  <a class="portfolio-thumb" style="background-image: url(<%= @item.image_url %>);"></a>
+  <div class="card-body">
+    <div class="portfolio-meta">
+      <span class="mr-3"><i class="fe-icon-user"></i> <%= @item.author %></span>
+      <i class="fe-icon-heart text-accent"></i>12</a>
+    </div>
+    <h5 class="portfolio-title">
+    </h5>
+    <h5 class="block-title"> <%= @item.title %></h5>
+	  <p> Description :<%= @item.description %> </p>
+
+	  <!-- Amazon Button -->
+	<a class="market-btn amazon-btn" href="#">
+	  <span class="mb-subtitle">Order now at</span>
+	  <span class="mb-title">Amazon.com</span>
+	</a>
+
+  </div>
+</div>
+</div>
+
+
