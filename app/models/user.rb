@@ -6,9 +6,4 @@ class User < ApplicationRecord
 
 
 
-
-
-
-
-
 end
