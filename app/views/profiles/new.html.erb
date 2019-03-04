@@ -1,0 +1,14 @@
+
+
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+  <%= text_field_tag 'first_name', '', class: 'form-control', placeholder: 'Prénom'%>
+  <%= text_field_tag 'last_name', '', class: 'form-control', placeholder: 'Nom'%>
+
+  <%= text_field_tag 'street', '', class: 'form-control', placeholder: 'Rue'%>
+  <%= text_field_tag 'city', '', class: 'form-control', placeholder: 'Ville'%>
+  <%= text_field_tag 'zip_code', '', class: 'form-control', placeholder: 'Code Postal'%> 
+
+  <%= text_field_tag 'phone_number', '', class: 'form-control', placeholder: 'Numéro de téléphone'%>
+
+  <%= submit_tag "Enregistrer", class: "btn btn-secondary" %>
+<% end %>

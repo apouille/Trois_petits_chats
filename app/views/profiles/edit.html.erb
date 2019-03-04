@@ -1,0 +1,15 @@
+
+<%= form_for @profile do |f| %>
+  <div class="form-group">
+    <%= f.text_field :first_name, class: 'form-control', placeholder: 'Prénom'%></br>
+    <%= f.text_field :last_name, class: 'form-control', placeholder: 'Nom'%></br>
+    <%= f.text_field :street, class: 'form-control', placeholder: 'Rue'%></br>
+    <%= f.text_field :city, class: 'form-control', placeholder: 'Ville'%></br> 
+    <%= f.text_field :zip_code, class: 'form-control', placeholder: 'Code Postal'%></br>
+    
+    <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Numéro de téléphone'%></br>       
+  </div>
+  <div class="form-group">
+  <button type="submit" class="btn btn-secondary"> Enregistrer </button>
+  </div>
+<% end %>
