@@ -14,3 +14,24 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//= require card.min
+//= require modernizr.min
+//= require theme.min
+//= require vendor.min
+
+//= require js/bootstrap.min
+//= require js/gmap3.min
+//= require js/imagesloaded.pkgd.min
+//= require js/iziToast.min
+//= require js/jquery.animateNumber.min
+//= require js/jquery.countdown.min
+//= require js/jquery.easing.min
+//= require js/jquery.easy-autocomplete.min
+//= require js/jquery.fancybox.min
+//= require js/jquery.inview.min
+//= require js/jquery.min
+//= require js/nouislider.min
+//= require js/parallax-scroll.min
+//= require js/owl.carousel.min
+//= require js/popper.min
