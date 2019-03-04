@@ -2,7 +2,13 @@
 require 'faker'
 
 10.times do
-   item = Item.create!(title: Faker::Creature::Cat.breed, description: Faker::Lorem.paragraph, price: Faker::Number.decimal(2, 2), image_url: "http://placekitten.com/500/300")
+   item = Item.create!(
+   	title: Faker::Creature::Cat.breed, 
+   	author: Faker::Name.name,
+   	description: Faker::Lorem.paragraph, 
+   	format: "300x500",
+   	price: Faker::Number.decimal(2, 2), 
+   	image_url: "http://placekitten.com/500/300")
 end
 
 10.times do
