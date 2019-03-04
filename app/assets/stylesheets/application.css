@@ -12,4 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ *
+ *= require css/feather.min
+ *= require css/iziToast.min
+ *= require css/jquery.fancybox.min
+ *= require css/nouislider.min
+ *= require css/owl.carousel.min
+ *= require css/socicon.min
+ *
+ *= require theme.min
+ *= require vendor.min
  */
