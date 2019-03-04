@@ -10,7 +10,8 @@ end
   	title: Faker::Creature::Cat.breed,
   	description: Faker::Lorem.paragraph,
   	price: Faker::Number.decimal(2, 2),
-  	image_url: "https://pasteboard.co/I3R1Cuk.jpg"
+    dimension: "300x500",
+  	image_url: "https://placekitten.com/500/300"
   )
 end
 
