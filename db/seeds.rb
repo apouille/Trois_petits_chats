@@ -17,7 +17,7 @@ end
   )
 end
 
-i = 1
+
 10.times do
  	profile = Profile.create!(
  		first_name: Faker::Name.first_name,
@@ -26,7 +26,7 @@ i = 1
  		city: Faker::Address.city,
  		zip_code: "75000",
  		phone_number: "0033#{rand(100000000..999999999)}",
- 		user: User.find(i)
+ 		user: User.all.sample
  	)
-  i += 1
+  
 end
