@@ -6,15 +6,17 @@
 end 
 
 10.times do
-  item = Item.create!(
-  	title: Faker::Creature::Cat.breed,
-  	description: Faker::Lorem.paragraph,
-  	price: Faker::Number.decimal(2, 2),
-    dimension: "300x500",
-  	image_url: "https://placekitten.com/500/300"
+   item = Item.create!(
+   	title: Faker::Creature::Cat.breed, 
+   	author: Faker::Name.name,
+   	dimension: "300x500",
+   	price: Faker::Number.decimal(2, 2), 
+   	image_url: "http://placekitten.com/500/300"),
+  	description: Faker::Lorem.characters(41),
   )
 end
 
+i = 1
 10.times do
  	profile = Profile.create!(
  		first_name: Faker::Name.first_name,
@@ -23,6 +25,7 @@ end
  		city: Faker::Address.city,
  		zip_code: "75000",
  		phone_number: "0033#{rand(100000000..999999999)}",
- 		user_id: User.all.sample.id
+ 		user: User.find(i)
  	)
+  i += 1
 end

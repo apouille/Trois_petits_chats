@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BasicRubyFile</title>
+    <title>Trois petits chats</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
   <body>
+
+    <%= render 'layouts/header' %>
+    <br><br><br>
     <%= yield %>
+    <%= render 'layouts/footer'%>
+
   </body>
+
 </html>
