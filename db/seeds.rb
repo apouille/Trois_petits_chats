@@ -3,14 +3,14 @@
 		email: "#{Faker::Name.first_name}@yopmail.com",
 		password: "test1234"
 	)
-end 
+end
 
 10.times do
    item = Item.create!(
-   	title: Faker::Creature::Cat.breed, 
+   	title: Faker::Creature::Cat.breed,
    	author: Faker::Name.name,
    	dimension: "300x500",
-   	price: Faker::Number.decimal(2, 2), 
+   	price: Faker::Number.decimal(2, 2),
    	image_url: "http://placekitten.com/500/300",
   	description: Faker::Lorem.characters(41),
     view: rand(0..10)
