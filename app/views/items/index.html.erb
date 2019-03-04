@@ -1,2 +1,19 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<%= render 'banner' %>
+
+<!-- Cards Layout: Columns -->
+<div class="card-columns mt-5 mx-3">
+
+  <!-- Card -->
+  <% @items.each do |item| %>
+    <div class="card mb-30">
+      <img src="<%= item.image_url %>" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title"><%= item.title %></h4>
+        <p class="card-text"><%= item.description %></p>
+        <%= link_to "Plus d'infos", item_path(item.id), :class => "btn btn-style-6 btn-gradient" %>
+        <span class="text-muted text-sm opacity-75"><%= item.price %> €</span>
+      </div>
+    </div>
+  <% end %>
+
+</div>

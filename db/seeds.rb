@@ -6,11 +6,14 @@
 end 
 
 10.times do
-  item = Item.create!(
-  	title: Faker::Creature::Cat.breed,
+   item = Item.create!(
+   	title: Faker::Creature::Cat.breed, 
+   	author: Faker::Name.name,
+   	dimension: "300x500",
+   	price: Faker::Number.decimal(2, 2), 
+   	image_url: "http://placekitten.com/500/300",
   	description: Faker::Lorem.characters(41),
-  	price: Faker::Number.decimal(2, 2),
-  	image_url: "https://pasteboard.co/I3R1Cuk.jpg"
+    view: rand(0..10)
   )
 end
 
