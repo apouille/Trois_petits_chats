@@ -1,6 +1,6 @@
 # BASIC RAILS FILE
 
-Lien Prod Heroku : <i> https://troispetitschats.herokuapp.com/ </i>  
+Lien Prod Heroku : <i> https://git.heroku.com/troispetitschats-demo.git </i>  
 
 Dossier Rails à cloner avec toutes les gems installées. :boom:  
 
