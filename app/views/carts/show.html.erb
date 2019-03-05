@@ -10,7 +10,7 @@
     <%= link_to cart_item_path(cart_item.id), method: "delete", :class => "text-decoration-none", data: { confirm: "Are you sure about deleting this item from your list ?"} do %>
     <i class="fe-icon-x"></i>
     <% end %>
-    </span>    
+    </span>
         <div class="px-3 my-3"><a class="cart-item-product" href="shop-single.html">
             <div class="cart-item-product-thumb"><img src="<%=cart_item.item.image_url%>" alt="Product"></div>
             <div class="cart-item-product-info">
@@ -21,7 +21,7 @@
           <div class="count-input">
             <select class="form-control">
               <option>1</option>
-           
+
             </select>
           </div>
         </div>
@@ -35,16 +35,40 @@
 
 
 <div class="d-sm-flex justify-content-between align-items-center text-center text-sm-right">
-       
-        <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">Sous-total:</span><span class="d-inline-block align-middle text-xl font-weight-medium"><%=@subtotal%></span></div>
+
+        <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">Sous-total:</span><span class="d-inline-block align-middle text-xl font-weight-medium"><%= total_cart %></span></div>
 </div>
 
 
 <div class="row pt-3 pb-5 mb-2">
-        <div class="col-sm-6 mb-3">
-        	<%=link_to 'Continuer mes achats', root_path, class:'btn btn-secondary btn-block'%>
-        </div>
+
+  <div class="col-sm-6 mb-3">
+    <%=link_to 'Continuer mes achats', root_path, class:'btn btn-secondary btn-block'%>
+  </div>
+
+	<div class="col-sm-6 mb-3">
+    <div id="accordion1">
+      <a class="collapsed btn btn-primary btn-block" href="#collapseOne" data-toggle="collapse"><i class="fe-icon-credit-card"></i> Valider mon panier</a>
+    </div>
+  </div>
+
 </div>
+
+<% if current_user_profile? %>
+  <div class="collapsed" id="collapseOne" data-parent="#accordion1">
+    <div class="card-body">
+        <div class="col-md-12"><%= render 'profiles/edit_form' %></div>
+    </div>
+  </div>
+
+<% else %>
+  <div class="collapse" id="collapseOne" data-parent="#accordion1">
+    <div class="card-body">
+        <div class="col-md-12"><%= render 'profiles/new_form' %></div>
+    </div>
+  </div>
+<% end %>
+
 
 
 </div>

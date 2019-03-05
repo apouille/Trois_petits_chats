@@ -2,11 +2,11 @@ class CartsController < ApplicationController
   def index
     @cart = Cart.all
   end
-  
+
   def show
   	@cart = Cart.find(params[:id])
   	@cart_items = @cart.cart_items
-	  @profile = Profile.find_by(user_id: current_user)
+    @profile = current_user.profile
 
 	  @subtotal=0
 	  @cart_items.each do |cart_item|
