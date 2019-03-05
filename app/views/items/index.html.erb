@@ -10,6 +10,13 @@
       <div class="card-body">
         <h4 class="card-title"><%= item.title %></h4>
         <p class="card-text"><%= item.description %></p>
+        <% if user_signed_in? %>
+        <% if item_in_cart?(item.id) %>
+         <p>Tu es au panier </p>
+        <% else %>
+        <p>Tu n'es pas au panier </p>
+        <% end %>
+        <% end %>
         <%= link_to "Plus d'infos", item_path(item.id), :class => "btn btn-style-6 btn-gradient" %>
         <span class="text-muted text-sm opacity-75"><%= item.price %> €</span>
       </div>

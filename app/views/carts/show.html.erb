@@ -1,0 +1,49 @@
+<h1>Votre panier</h1>
+
+
+<div class="container pb-5 mb-2">
+<% @cart_items.each do |cart_item| %>
+
+
+
+	<div class="cart-item d-md-flex justify-content-between"><span class="remove-item"><i class="fe-icon-x"></i></span>
+        <div class="px-3 my-3"><a class="cart-item-product" href="shop-single.html">
+            <div class="cart-item-product-thumb"><img src="<%=cart_item.item.image_url%>" alt="Product"></div>
+            <div class="cart-item-product-info">
+              <h4 class="cart-item-product-title"><%=cart_item.item.title %></h4><span><strong>Dimension:</strong> <%=cart_item.item.dimension %></span><span><strong>Author:</strong><%=cart_item.item.author %></span>
+            </div></a></div>
+        <div class="px-3 my-3 text-center">
+          <div class="cart-item-label">Quantity</div>
+          <div class="count-input">
+            <select class="form-control">
+              <option>1</option>
+           
+            </select>
+          </div>
+        </div>
+        <div class="px-3 my-3 text-center">
+          <div class="cart-item-label">Price</div><span class="text-xl font-weight-medium"><%=cart_item.item.price %></span>
+        </div>
+      </div>
+
+
+	<%end%>
+
+
+<div class="d-sm-flex justify-content-between align-items-center text-center text-sm-right">
+       
+        <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">Sous-total:</span><span class="d-inline-block align-middle text-xl font-weight-medium"><%=@subtotal%></span></div>
+</div>
+
+
+<div class="row pt-3 pb-5 mb-2">
+        <div class="col-sm-6 mb-3">
+        	<%=link_to 'Continuer mes achats', root_path, class:'btn btn-secondary btn-block'%>
+        </div>
+ 		<div class="col-sm-6 mb-3">
+        <%=link_to '<i class="fe-icon-credit-card"></i>Valider mon panier'.html_safe, edit_profile_path(@profile.id), class:'btn btn-primary btn-block'%>
+        </div>	
+</div>
+
+
+</div>

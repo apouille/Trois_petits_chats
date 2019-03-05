@@ -11,16 +11,19 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery3
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 
+//= require js/jquery.min
+//= require js/bootstrap.min
 //= require card.min
 //= require modernizr.min
 //= require theme.min
 //= require vendor.min
 
-//= require js/bootstrap.min
 //= require js/gmap3.min
 //= require js/imagesloaded.pkgd.min
 //= require js/iziToast.min
@@ -30,7 +33,6 @@
 //= require js/jquery.easy-autocomplete.min
 //= require js/jquery.fancybox.min
 //= require js/jquery.inview.min
-//= require js/jquery.min
 //= require js/nouislider.min
 //= require js/parallax-scroll.min
 //= require js/owl.carousel.min
