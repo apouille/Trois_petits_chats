@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 
   resources :carts
  
-  resources :profiles , only: [:show, :new, :create, :edit, :update]
+  resources :profiles, only: [:show, :new, :create, :edit, :update]
 
   resources :cart_items
+
+  resources :charges, only: [:new, :create]
 
 end
