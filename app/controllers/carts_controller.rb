@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+
   def show
   	@cart = Cart.find(params[:id])
   	@cart_items = @cart.cart_items
@@ -10,8 +11,6 @@ class CartsController < ApplicationController
 		@subtotal+=price
 		end
 	end
-
-
 
   def create
   	cart=Cart.create(status: 0, user: current_user)
@@ -27,4 +26,6 @@ class CartsController < ApplicationController
 
 
 
+
 end
+

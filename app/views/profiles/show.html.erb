@@ -1,0 +1,18 @@
+
+</br><%= link_to "CREER MON PROFIL", new_profile_path, class: "btn-dark btn p-1" %>
+
+<h3 class="mt-4">Espace de <%= @profile.first_name %> <%= @profile.last_name %></h3>
+<p>
+	<ul>
+		<li> Prénom : <%= @profile.first_name %></li>
+		<li> Nom : <%= @profile.last_name %></li>
+		<li> Adresse: <%= @profile.street %></li>
+		<li> <%= @profile.city %></li>
+		<li> <%= @profile.zip_code %></li>
+	</ul>
+</p>
+
+<p>
+	<%= link_to "Editer password / email", edit_user_registration_path, class: "btn-dark btn p-1" %>
+	<%= link_to "Editer autres informations", edit_profile_path, class: "btn-dark btn p-1" %>
+</p>

@@ -1,4 +1,5 @@
 class CartItemsController < ApplicationController
+
   def index
   end
 
@@ -14,4 +15,5 @@ class CartItemsController < ApplicationController
 
   def destroy
   end
+
 end
