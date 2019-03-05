@@ -5,7 +5,10 @@
          :recoverable, :rememberable, :validatable
 
  	has_one :profile
-has_many :carts
+
+
+ 	has_many :carts
+
 
 
 end
