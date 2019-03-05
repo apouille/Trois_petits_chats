@@ -33,7 +33,9 @@
             <div class="col-sm-12">
               <div class="pt-4 hidden-sm-up"></div>
               <!-- <button class="btn btn-primary btn-block m-0" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="fe-icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="fe-icon-shopping-cart"></i> Add to Cart</button> -->
-              <button class="btn btn-primary btn-block m-0" type="button" data-toggle="modal" data-target="#modalCentered"><i class="fe-icon-shopping-cart"></i> Ajouter au panier</button>
+    <!--            <button class="btn btn-primary btn-block m-0" type="button" data-toggle="modal" data-target="#modalCentered"><i class="fe-icon-shopping-cart"></i>
+              </button>  -->
+                <%= button_to "Add to cart", cart_items_path(params[:id]), method: :post, :class => "btn btn-primary btn-block m-0", "data-toggle" =>"modal", "data-target" => "#modalCentered", remote: true %>
             </div>
           </div>
 
@@ -63,15 +65,15 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Ajout d'un article au panier</h4>
+        <h4 class="modal-title">Ajout d'un article</h4>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
-        <p>Photo bien ajoutée au panier 😻</p>
+        <p>Photo bien ajoutée au panier 😻</p> 
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary btn-sm" type="button">Voir mon panier</button>
-        <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Continuer mes achats</button>
+        <%= button_to "Voir mon panier", cart_path(current_user.carts[0]), method: :get, :class => "btn btn-primary btn-sm"%>
+        <%= button_to "Continuer mes achats", items_path, method: :get, :class => "btn btn-secondary btn-sm"%>
       </div>
     </div>
   </div>

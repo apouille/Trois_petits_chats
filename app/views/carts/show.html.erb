@@ -6,7 +6,11 @@
 
 
 
-	<div class="cart-item d-md-flex justify-content-between"><span class="remove-item"><i class="fe-icon-x"></i></span>
+	<div class="cart-item d-md-flex justify-content-between"><span class="remove-item">
+    <%= link_to cart_item_path(cart_item.id), method: "delete", :class => "text-decoration-none", data: { confirm: "Are you sure about deleting this item from your list ?"} do %>
+    <i class="fe-icon-x"></i>
+    <% end %>
+    </span>
         <div class="px-3 my-3"><a class="cart-item-product" href="shop-single.html">
             <div class="cart-item-product-thumb"><img src="<%=cart_item.item.image_url%>" alt="Product"></div>
             <div class="cart-item-product-info">
