@@ -5,7 +5,7 @@
 	)
 end
 
-1.times do
+20.times do
    item = Item.create!(
    	title: Faker::Creature::Cat.breed,
    	author: Faker::Name.name,
@@ -34,15 +34,31 @@ end
 1.times do
   cart = Cart.create!(
     status: 0,
-    user: User.all.sample,
+    user: User.first,
+    )  
+  puts 'cart created'
+end
+
+1.times do
+  cart = Cart.create!(
+    status: 1,
+    user: User.first,
     )  
   puts 'cart created'
 end
 
 
-10.times do
+3.times do
   cartitems = CartItem.create!(
-    cart: Cart.all.sample,
+    cart: Cart.first,
+    item: Item.all.sample,
+    quantity: 1
+    )  
+end
+
+3.times do
+  cartitems = CartItem.create!(
+    cart: Cart.last,
     item: Item.all.sample,
     quantity: 1
     )  
