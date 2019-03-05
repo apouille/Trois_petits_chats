@@ -1,59 +1,78 @@
+  <%= render 'small_banner' %>
 
-
-<div class="card-body text-info">
-  <div class="card-header">
-	<h1> Produit numéro <%=params[:id]%></h1>
-</div>
-
-  <!-- Tooltip Static (On the Right) -->
-  <div class="tooltip bs-tooltip-right" role="tooltip">
-    <div class="arrow"></div>
-    <div class="tooltip-inner"> HI ! </div>
-  </div>
-
-
-  <!-- Portfolio List View -->
+  <!-- Product List View -->
   <div class= "container">
-  <div class="card portfolio-card portfolio-list">
-  <a class="portfolio-thumb" style="background-image: url(<%= @item.image_url %>);"></a>
-  <div class="card-body">
-    <div class="portfolio-meta">
-      <span class="mr-3"><i class="fe-icon-user"></i> <%= @item.author %></span>
-      <i class="fe-icon-heart text-accent"></i>12</a>
+    <div class="card portfolio-card portfolio-list">
+      <a class="portfolio-thumb" style="background-image: url(<%= @item.image_url %>);"></a>
+        <div class="card-body">
+          <div class="portfolio-meta">
+            <span class="mr-3"><i class="fe-icon-user"></i> <%= @item.author %></span>
+            <span class="mr-3"><i class="fe-icon-heart text-accent"></i>12 </span>
+            <i class="fe-icon-bookmark"></i><a href="#"> Chaton</a>, <a href="#">mignon</a>
+          </div>
+          <h2 class="h3 font-weight-bold block-title"><%= @item.title %></h2>
+          <h3 class="h4 font-weight-light"><%= @item.price %> €</h3>
+          <p class="text-muted">Description : <%= @item.description %></p>
+
+        <!-- Add to cart Button -->
+          <div class="row align-items-end pb-4">
+          <!--  Quantity (à décommenter qd on mettra les quantités)
+            <div class="col-sm-4">
+              <div class="form-group mb-0"">
+                <label for="quantity">Quantity</label>
+                <select class="form-control" id="quantity">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-8">-->
+            <div class="col-sm-12">
+              <div class="pt-4 hidden-sm-up"></div>
+              <!-- <button class="btn btn-primary btn-block m-0" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="fe-icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="fe-icon-shopping-cart"></i> Add to Cart</button> -->
+              <button class="btn btn-primary btn-block m-0" type="button" data-toggle="modal" data-target="#modalCentered"><i class="fe-icon-shopping-cart"></i> Ajouter au panier</button>
+            </div>
+          </div>
+
+        </div>
     </div>
-    <h5 class="portfolio-title">
-    </h5>
-    <h5 class="block-title"> <%= @item.title %></h5>
-    <p class="card-text"> Description :<%= @item.description %></p>
-    <p class="card-text"> Price : <%= @item.price %> € </p>
-
-
-	  <!-- Amazon Button -->
-	<a class="market-btn amazon-btn" href="#">
-	  <span class="mb-subtitle">Order now at</span>
-	  <span class="mb-title">Amazon.com</span>
-	</a>
-
-  </div>
-</div>
-</div>
-
-
-<!-- Testimonials Carousel Widget -->
-<div class= "container">
+  </div> <!-- fin container -->
 
 
 <!-- Social Networks Widget -->
-<div class="widget p-5">
-  <h4 class="widget-title">Social networks</h4>
-  <a class="social-btn sb-style-6 sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook">
-    <i class="socicon-facebook"></i>
-  </a>
-  <a class="social-btn sb-style-6 sb-dribbble" href="#" data-toggle="tooltip" data-placement="top" title="Dribbble">
-    <i class="socicon-dribbble"></i>
-  </a>
-  <a class="social-btn sb-style-6 sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter">
-    <i class="socicon-twitter"></i>
-  </a>
+<div class= "container">
+  <div class="widget p-5">
+    <h4 class="widget-title">Social networks</h4>
+    <a class="social-btn sb-style-6 sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook">
+      <i class="socicon-facebook"></i>
+    </a>
+    <a class="social-btn sb-style-6 sb-dribbble" href="#" data-toggle="tooltip" data-placement="top" title="Dribbble">
+      <i class="socicon-dribbble"></i>
+    </a>
+    <a class="social-btn sb-style-6 sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter">
+      <i class="socicon-twitter"></i>
+    </a>
+  </div>
 </div>
+
+<!-- Vertically Centered Modal -->
+<div class="modal fade" id="modalCentered" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Ajout d'un article au panier</h4>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <p>Photo bien ajoutée au panier 😻</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary btn-sm" type="button">Voir mon panier</button>
+        <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Continuer mes achats</button>
+      </div>
+    </div>
+  </div>
 </div>
