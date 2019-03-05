@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
-  
+before_action :authenticate_user!, only: [:show, :edit]
+
   def new
   	@profile = Profile.new
   end
@@ -9,7 +10,7 @@ class ProfilesController < ApplicationController
     @profile.user_id = current_user.id
 
     if @profile.save
-       flash[:notice] = "Vous avez bien créer votre profil"
+       flash[:notice] = "Vous avez bien créé votre profil"
        redirect_to root_path
      else
       flash.now[:error] = 'Il manque des informations...'
@@ -20,10 +21,6 @@ class ProfilesController < ApplicationController
 
   def edit
   	@profile = Profile.find_by(user_id: current_user.id)
-  	puts "*"*60
-    puts @profile
-    puts current_user.id
-  	puts "*"*60
   end
 
   def update
