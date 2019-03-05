@@ -1,17 +1,4 @@
-    <!-- Small banner -->
-    <div id="small-banner" class="page-title d-flex" aria-label="Page title">
-      <div class="container text-left align-self-center">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a>
-            </li>
-            <li class="breadcrumb-item"><a href="shop-boxed-ls.html">Shop</a>
-            </li>
-          </ol>
-        </nav>
-        <h1 class="page-title-heading">Photo numéro <%=params[:id]%></h1>
-      </div>
-    </div>
+  <%= render 'small_banner' %>
 
   <!-- Product List View -->
   <div class= "container">
@@ -27,9 +14,9 @@
           <h3 class="h4 font-weight-light"><%= @item.price %> €</h3>
           <p class="text-muted">Description : <%= @item.description %></p>
 
-          <!-- Add to cart Button -->
+        <!-- Add to cart Button -->
           <div class="row align-items-end pb-4">
-<!--  Quantity (à décommenter qd on mettra les quantités)
+          <!--  Quantity (à décommenter qd on mettra les quantités)
             <div class="col-sm-4">
               <div class="form-group mb-0"">
                 <label for="quantity">Quantity</label>
@@ -52,7 +39,7 @@
 
         </div>
     </div>
-  </div>
+  </div> <!-- fin container -->
 
 
 <!-- Social Networks Widget -->
