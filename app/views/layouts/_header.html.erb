@@ -24,8 +24,7 @@
             <!-- Account-->
             <li class="nav-item dropdown-toggle"><a class="nav-link">Account</a>
                 <ul class="dropdown-menu">
-                    <%if user_signed_in?%>  
-                      <li class="dropdown-item"> <%= link_to "My Profile", root_path %> </li>
+                    <%if user_signed_in?%>
                       <li class="dropdown-item">  <%= link_to "Edit email / password", edit_user_registration_path %> </li>
                       <li class="dropdown-item"> <%= link_to "Log out", destroy_user_session_path, method: :delete %> </li>
               

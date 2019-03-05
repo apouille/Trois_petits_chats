@@ -1,15 +1,26 @@
-
-<%= form_for @profile do |f| %>
-  <div class="form-group">
-    <%= f.text_field :first_name, class: 'form-control', placeholder: 'Prénom'%></br>
-    <%= f.text_field :last_name, class: 'form-control', placeholder: 'Nom'%></br>
-    <%= f.text_field :street, class: 'form-control', placeholder: 'Rue'%></br>
-    <%= f.text_field :city, class: 'form-control', placeholder: 'Ville'%></br> 
-    <%= f.text_field :zip_code, class: 'form-control', placeholder: 'Code Postal'%></br>
-    
-    <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Numéro de téléphone'%></br>       
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+        <%= form_for @profile do |f| %>
+          <h1 class="h3 mb-3 font-weight-normal text-center">Mes Informations</h1>
+          <h2 class="h5 mb-3 font-weight-normal text-left">Mes Informations</h2>
+          <div class="form-group">
+            <%= f.text_field :first_name, class: 'form-control', placeholder: 'Prénom'%></br>
+            <%= f.text_field :last_name, class: 'form-control', placeholder: 'Nom'%></br>
+            <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Numéro de téléphone'%></br>  
+          </div>
+          <h2 class="h5 mb-3 font-weight-normal text-left">Mon adresse de facturation</h2>
+          <div class="form-group">  
+            <%= f.text_field :street, class: 'form-control', placeholder: 'Rue'%></br>
+            <%= f.text_field :city, class: 'form-control', placeholder: 'Ville'%></br> 
+            <%= f.text_field :zip_code, class: 'form-control', placeholder: 'Code Postal'%></br>   
+          <small class="text-gray">* Champs obligatoires</small> 
+          </div>
+          <div class="form-actions mt-3">  
+            <button type="submit" class="btn btn-secondary"> Mettre à jour </button>
+          </div>
+        <% end %>
+    </div>
   </div>
-  <div class="form-group">
-  <button type="submit" class="btn btn-secondary"> Enregistrer </button>
-  </div>
-<% end %>
+</div>
