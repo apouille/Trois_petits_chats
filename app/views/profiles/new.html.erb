@@ -1,0 +1,26 @@
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+				<%= form_tag url_for(action: 'create'), method: "post" do %>
+				  <h1 class="h3 mb-3 font-weight-normal text-center">Mes Informations</h1>
+          <h2 class="h5 mb-3 font-weight-normal text-left">Mes Informations</h2>
+          <div class="form-group">
+					  <%= text_field_tag 'first_name', '', class: 'form-control', placeholder: 'Prénom *'%>
+					  <%= text_field_tag 'last_name', '', class: 'form-control', placeholder: 'Nom *'%>
+					  <%= text_field_tag 'phone_number', '', class: 'form-control', placeholder: 'Numéro de téléphone *'%>
+					</div>
+					<h2 class="h5 mb-3 font-weight-normal text-left">Mon adresse de facturation</h2>
+					<div class="form-group">
+					  <%= text_field_tag 'street', '', class: 'form-control', placeholder: 'Rue *'%>
+					  <%= text_field_tag 'city', '', class: 'form-control', placeholder: 'Ville *'%>
+					  <%= text_field_tag 'zip_code', '', class: 'form-control', placeholder: 'Code Postal *'%>
+					  <small class="text-gray">* Champs obligatoires</small> 
+					</div>
+					<div class="form-actions mt-3">  
+					  <%= submit_tag "Enregistrer", class: "btn btn-secondary" %>
+					</div>  		
+				<% end %>
+    </div>
+  </div>
+</div>
