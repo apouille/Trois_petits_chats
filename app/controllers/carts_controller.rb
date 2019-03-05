@@ -23,10 +23,5 @@ class CartsController < ApplicationController
   	cart = Cart.update(status: 0, user: current_user)
   end
 
-
-
-
-
-
 end
 
