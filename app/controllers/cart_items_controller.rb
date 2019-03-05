@@ -6,8 +6,13 @@ class CartItemsController < ApplicationController
   def show
   end
 
+  def new
+    @cart_item = CartItem.new 
+  end
+
   def create
-    cart_item =Cart_Item.create(quantity: 1, cart: current_user.carts[0],item: params[:id])
+    @cart_item =CartItem.new(quantity: 1, cart: current_user.carts[0],item_id: params[:format])
+    @cart_item.save
   end
 
   def update
