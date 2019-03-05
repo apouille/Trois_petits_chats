@@ -72,7 +72,7 @@
         <p>Photo bien ajoutée au panier 😻</p> 
       </div>
       <div class="modal-footer">
-        <%= button_to "Voir mon panier", cart_path(current_user.carts[0]), method: :get, :class => "btn btn-primary btn-sm"%>
+        <%= button_to "Voir mon panier", cart_path(current_user.carts.last), method: :get, :class => "btn btn-primary btn-sm"%>
         <%= button_to "Continuer mes achats", items_path, method: :get, :class => "btn btn-secondary btn-sm"%>
       </div>
     </div>
