@@ -60,4 +60,13 @@ before_action :verify_user_rights, only: [:show, :edit]
   	params.permit(:first_name, :last_name, :street, :city, :zip_code, :phone_number)
   end
 
+  def verify_user_rights
+    @profile_page = Profile.find(params[:id])
+    @profile_user = current_user.profile
+    unless @profile_user.id == @profile_page.id
+    flash[:error] = "Vous n'avez pas les droits"
+    redirect_to root_path
+    end
+  end
+
 end
