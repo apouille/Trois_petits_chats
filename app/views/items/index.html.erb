@@ -1,19 +1,23 @@
 <%= render 'banner' %>
 
-<!-- Cards Layout: Columns -->
-<div class="card-columns mt-5 mx-3">
+<!-- Card Top Image -->
+
+<!-- Cards Layout: Deck -->
+<div class="row mt-5 mx-3">
 
   <!-- Card -->
   <% @items.each do |item| %>
-    <div class="card mb-30">
-      <img src="<%= item.image_url %>" alt="Card image">
-      <div class="card-body">
-        <h4 class="card-title"><%= item.title %></h4>
-        <p class="card-text"><%= item.description %></p>
-        <%= link_to "Plus d'infos", item_path(item.id), :class => "btn btn-style-6 btn-gradient" %>
-        <span class="text-muted text-sm opacity-75"><%= item.price %> €</span>
-      </div>
-    </div>
-  <% end %>
+  <div class="card mb-30">
+    <img src="<%= item.image_url %>" alt="Card image">
+    <div class="card-body">
+      <h4 class="card-title"><%= item.title %></h4>
+      <p class="card-text"> Description : <%= item.description %></p>
+      <p class="card-text"> Price : <%= item.price %> €</p>
 
+    </div>
+    <div class="card-footer text-muted text-sm">
+        <%= link_to "Plus d'infos", item_path(item.id), :class => "btn btn-style-6 btn-gradient" %>    </div>
+  </div>
+  <% end %>
 </div>
+
