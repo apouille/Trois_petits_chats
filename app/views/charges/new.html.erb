@@ -1,3 +1,4 @@
+
 <!-- Small banner -->
 <div id="small-banner" class="page-title d-flex" aria-label="Page title">
   <div class="container text-left align-self-center">
@@ -13,24 +14,158 @@
   </div>
 </div>
 
-<div class="container mb-3">
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: <%= total_cart %> €</span>
-    </label>
-  </article>
 
- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="<%= total_cart * 100 %>"
-          data-locale="auto"></script>
-<% end %>
+<!-- Order Summary -->
+
+<div class="container pb-5 mb-2">
+<% current_cart.cart_items.each do |cart_item| %>
+
+
+  <div class="cart-item d-md-flex justify-content-between">
+        <div class="px-3 my-3"><a class="cart-item-product">
+            <div class="cart-item-product-thumb"><img src="<%=cart_item.item.image_url%>" alt="Product"></div>
+            <div class="cart-item-product-info">
+              <h4 class="cart-item-product-title"><%=cart_item.item.title %></h4><span><strong>Dimension:</strong> <%=cart_item.item.dimension %></span><span><strong>Author:</strong><%=cart_item.item.author %></span>
+            </div></a></div>
+        <div class="px-3 my-3 text-center">
+          <div class="cart-item-label">Quantity</div>
+          <div class="count-input">
+            <select class="form-control">
+              <option>1</option>
+
+            </select>
+          </div>
+        </div>
+        <div class="px-3 my-3 text-center">
+          <div class="cart-item-label">Price</div><span class="text-xl font-weight-medium"><%=cart_item.item.price %></span>
+        </div>
+      </div>
+  <%end%>
+
+
+<div class="d-sm-flex justify-content-between align-items-center text-center text-sm-right">
+
+        <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2"> Subtotal:</span><span class="d-inline-block align-middle text-xl font-weight-medium"><%= total_cart %>€</span></div>
+</div>
 
 </div>
+
+<div class="container">
+
+<div class="wizard-body">
+
+    <h3 class="h5 pb-3"> Shipping Fees </h3>
+
+              <div class="table-responsive">
+
+                <table class="table table-hover">
+
+                  <thead>
+
+                    <tr>
+
+                      <th class="align-middle"></th>
+
+                      <th class="align-middle">Shipping method</th>
+
+                      <th class="align-middle"> Number of products </th>
+
+                      <th class="align-middle"> Fees per unit </th>
+
+                      <th class="align-middle"> Total </th>
+
+
+                    </tr>
+
+                  </thead>
+
+                  <tbody>
+
+                    <tr>
+
+                      <td>
+
+                        <div class="custom-control custom-radio mb-4">
+
+                          <input class="custom-control-input" type="radio" id="courier" name="shipping-method" checked="">
+
+                          <label class="custom-control-label" for="courier"></label>
+
+                        </div>
+
+                      </td>
+
+                      <td class="align-middle"><span class="text-gray-dark"> Email </span><br><span class="text-muted text-sm"> All Addresses(default zone), France &amp; all over the World </span></td>
+
+                      <td class="align-middle"><%= number_of_cart_items %></td>
+
+                      <td class="align-middle"> 2€ </td>
+
+                      <td class="align-middle"> <%= shipping_fees %>€ </td>
+
+                    </tr>
+
+                  </tbody>
+
+                </table>
+
+              </div>
+
+            </div>
+
+<div class="d-sm-flex justify-content-between align-items-center text-center text-sm-right">
+
+        <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2"> Total :</span><span class="d-inline-block align-middle text-xl font-weight-medium"><%= total_cart + shipping_fees %>€</span></div>
+</div>
+
+</div>
+
+
+<!-- Bank card -->
+
+<div class="container">
+
+<div class="wizard-body">
+
+    <h3 class="h5 pb-3 mt-5">Credit Card Payment</h3>
+
+        <div class="card-body px-0">
+
+          <p>We accept following credit cards:&nbsp;&nbsp;<img class="d-inline-block align-middle" src="img/credit-cards.png" style="width: 120px;" alt="MasterCards"></p>
+
+            <div class="card-wrapper" data-jp-card-initialized="true"><div class="jp-card-container"><div class="jp-card"><div class="jp-card-front"><div class="jp-card-logo jp-card-elo"><div class="e">e</div><div class="l">l</div><div class="o">o</div></div><div class="jp-card-logo jp-card-visa">visa</div><div class="jp-card-logo jp-card-mastercard">MasterCard</div><div class="jp-card-logo jp-card-maestro">Maestro</div><div class="jp-card-logo jp-card-amex"></div><div class="jp-card-logo jp-card-discover">discover</div><div class="jp-card-logo jp-card-dinersclub"></div><div class="jp-card-logo jp-card-dankort"><div class="dk"><div class="d"></div><div class="k"></div></div></div><div class="jp-card-lower"><div class="jp-card-shiny"></div><div class="jp-card-cvc jp-card-display">•••</div><div class="jp-card-number jp-card-display">•••• •••• •••• ••••</div><div class="jp-card-name jp-card-display">Full Name</div><div class="jp-card-expiry jp-card-display" data-before="month/year" data-after="valid thru">••/••</div></div></div><div class="jp-card-back"><div class="jp-card-bar"></div><div class="jp-card-cvc jp-card-display">•••</div><div class="jp-card-shiny"></div></div></div></div></div>
+
+
+<!-- Stripe Button -->
+
+          <div class="container mb-3">
+          <%= form_tag charges_path do %>
+            <article>
+              <% if flash[:error].present? %>
+                <div id="error_explanation">
+                  <p><%= flash[:error] %></p>
+                </div>
+              <% end %>
+              <label class="amount">
+                <span>Amount: <%= total_cart + shipping_fees %> €</span>
+              </label>
+            </article>
+
+           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-description="A month's subscription"
+                    data-amount="<%= (total_cart + shipping_fees)*100 %>"
+                    data-locale="auto">
+           </script>
+
+          <% end %>
+
+          </div>
+
+        </div>
+</div>
+
+</div>
+
+
+
