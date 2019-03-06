@@ -3,10 +3,8 @@
       <div class="container text-left align-self-center">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a>
-            </li>
-            <li class="breadcrumb-item"><a href="shop-boxed-ls.html">Shop</a>
-            </li>
+            <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+            <li class="breadcrumb-item"><%= link_to "Shop", root_path %></li>
           </ol>
         </nav>
         <h1 class="page-title-heading">Photo numéro <%=params[:id]%></h1>

@@ -15,7 +15,11 @@ before_action :authenticate_user!, only: [:show, :edit]
        flash[:notice] = "Vous avez bien créé votre profil"
        redirect_to cart_path(@current_cart.id)
      else
-      flash.now[:error] = 'Il manque des informations...'
+      if @profile.errors.any?
+        @profile.errors.full_messages.each do |message|
+          flash[:error] =  "#{message}"
+        end
+      end
       redirect_to cart_path(@current_cart.id)
     end
 
@@ -30,9 +34,14 @@ before_action :authenticate_user!, only: [:show, :edit]
     @current_cart = current_user.carts.where("status = 0")[0]
   	post_params = params[:profile]
     if @profile.update(first_name: post_params[:first_name], last_name: post_params[:last_name], street: post_params[:street], city: post_params[:city], zip_code: post_params[:zip_code], phone_number: post_params[:phone_number])
+      flash[:notice] = "Vous avez bien créé votre profil"
       redirect_to cart_path(@current_cart.id)
     else
-      flash[:danger] = "Il manque des informations"
+      if @profile.errors.any?
+        @profile.errors.full_messages.each do |message|
+          flash[:error] =  "#{message}"
+        end
+      end
       redirect_to cart_path(@current_cart.id)
     end
   end

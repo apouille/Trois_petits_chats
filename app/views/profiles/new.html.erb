@@ -1,7 +1,18 @@
+
+
 <div class="container mb-5">
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <br><br><br>
+
+      <% if @profile.errors.any? %>
+  <p>Registration failure. Please checkout the following points :</p>
+  <ul>
+    <% @profile.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 				<%= form_tag url_for(action: 'create'), method: "post" do %>
 				  <h1 class="h3 mb-3 font-weight-normal text-center">Mes Informations</h1>
           <h2 class="h5 mb-3 font-weight-normal text-left">Mes Informations</h2>
