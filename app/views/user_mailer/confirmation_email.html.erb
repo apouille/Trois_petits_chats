@@ -8,6 +8,9 @@
     <p>
       Tu as passé commande pour les images suivantes :
     </p>
+      <% @items.each do |i| %>
+        <p><%= link_to i.item.title, url_for(i.item.item_picture) %></p>
+      <% end %>
     <p>
       Pour accéder à ton espace client, connecte-toi via :  <%= @url %>.
     </p>

@@ -8,7 +8,11 @@
   <% @items.each do |item| %>
   <div class="col-sm-6 col-md-4 col-xs-12">
   <div class="card mb-30 mx-md-3 mx-xs-0">
-    <img src="<%= item.image_url %>" alt="Card image">
+    <% if item.item_picture.attached? %>
+      <%= image_tag item.item_picture, alt: 'item picture' %>
+    <% else %>
+      <img src="<%= item.image_url %>" alt="Card image">
+    <% end %>
     <div class="card-body">
       <h4 class="card-title"><%= item.title %></h4>
       <p class="card-text"> Description : <%= item.description %></p>

@@ -18,7 +18,7 @@ class ChargesController < ApplicationController
 		    customer: customer.id,
 		    amount: @amount,
 		    description: 'Rails Stripe customer',
-		    currency: 'usd',
+		    currency: 'eur',
 		  })
 
 	  @cart.update(stripe_customer_id: charge[:customer], status: 1)
@@ -31,7 +31,8 @@ class ChargesController < ApplicationController
 		end
 
 		def confirmation_send
-      UserMailer.confirmation_email(self).deliver_now
+			@items = current_user.carts.last.cart_items
+      UserMailer.confirmation_email(current_user, @items).deliver_now
     end
 
 end

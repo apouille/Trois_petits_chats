@@ -1,9 +1,12 @@
 Confirmation de votre commande
 ==========================================================
- 
+
 Tu as passé commande pour les images suivantes :
- 
+      <% @items.each do |i| %>
+        - <%= url_for(i.item.item_picture) %> -
+      <% end %>
+
 Pour accéder à ton espace client, connecte-toi via :  <%= @url %>.
- 
+
 À très vite sur http://troispetitschats-prod.herokuapp.com !
 

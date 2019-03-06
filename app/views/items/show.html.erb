@@ -6,7 +6,7 @@
       <% if @item.item_picture.attached? %>
         <%= image_tag @item.item_picture, alt: 'item picture' %>
       <% else %>
-      <a class="portfolio-thumb" style="background-image: url(<%= @item.image_url %>);"></a>
+        <a class="portfolio-thumb" style="background-image: url(<%= @item.image_url %>);"></a>
       <% end %>
         <div class="card-body">
           <div class="portfolio-meta">
