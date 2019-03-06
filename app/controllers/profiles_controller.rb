@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
 before_action :authenticate_user!
+before_action :verify_profile, only: [:show, :edit]
 before_action :verify_user_rights, only: [:show, :edit]
 
   def new
@@ -62,6 +63,13 @@ before_action :verify_user_rights, only: [:show, :edit]
   	params.permit(:first_name, :last_name, :street, :city, :zip_code, :phone_number)
   end
 
+  def verify_profile
+   unless current_user.profile != nil
+   flash[:error] = "Vous n'avez pas de profile"
+   redirect_to root_path
+  end
+end
+
   def verify_user_rights
     @profile_page = Profile.find(params[:id])
     @profile_user = current_user.profile
@@ -70,5 +78,7 @@ before_action :verify_user_rights, only: [:show, :edit]
     redirect_to root_path
     end
   end
+
+ 
 
 end
