@@ -19,4 +19,9 @@ module CartsHelper
     return current_cart.cart_items.length
   end
 
+  def current_cart
+    current_cart = current_user.carts.find_by("status = 0")
+    return current_cart
+  end   
+
 end

@@ -1,12 +1,10 @@
 class ChargesController < ApplicationController
 	def new
-		@cart = Cart.find(2)
+		@cart = current_cart
 	end
 
 	def create
-		@cart = Cart.find(2)
-	  # Amount in cents
-	  @amount = 500
+		@cart = current_cart
 
 	  customer = Stripe::Customer.create({
 	    email: params[:stripeEmail],
