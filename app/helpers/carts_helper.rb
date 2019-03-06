@@ -1,6 +1,6 @@
 module CartsHelper
 	def cart_in_progress?
-		current_user.carts.where("status = 0") != nil
+		current_user.carts.find_by("status = 0") != nil
 	end
 
   def total_cart
