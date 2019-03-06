@@ -6,7 +6,7 @@
         <div class="navbar justify-content-end justify-content-lg-between">
           <!-- Search-->
           <form class="search-box" method="get">
-            <div class="easy-autocomplete" style="width: 915px;"><input type="text" id="site-search" placeholder="Type A or C to see suggestions" autocomplete="off"><div class="easy-autocomplete-container" id="eac-container-site-search"><ul></ul></div></div><span class="search-close"><i class="fe-icon-x"></i></span>
+            <div class="easy-autocomplete" style="width: 915px;"><input type="text" id="site-search" placeholder="Type A or C to see suggestions" autocomplete="off"><div class="easy-autocomplete-container" id="eac-container-site-search"><ul></ul></div></div><span class="search-close"><i class="fas fa-times"></i></span>
           </form>
           <!-- Main Menu-->
           <ul class="navbar-nav d-lg-block">
@@ -38,9 +38,9 @@
             <!-- Search and shopping-cart-->
           <div>
             <ul class="navbar-buttons d-inline-block align-middle mr-lg-2">
-              <li><a href="#" data-toggle="search"><i class="fe-icon-search"></i></a></li>
+              <li><a href="#" data-toggle="search"><i class="fas fa-search"></i></a></li>
               <%if user_signed_in?%>
-                <li><a href="#shopping-cart" data-toggle="offcanvas"><i class="fe-icon-shopping-cart"></i></a><span class="badge badge-danger"><%= number_of_cart_items %></span></li>
+                <li><a href="#shopping-cart" data-toggle="offcanvas"><i class="fas fa-shopping-cart"></i></a><span class="badge badge-danger"><%= number_of_cart_items %></span></li>
               <% end %>
             </ul>
           </div>
@@ -48,7 +48,7 @@
       </div>
 
       <!-- Off-Canvas Shopping Cart-->
-      <div class="offcanvas-container is-triggered offcanvas-container-reverse" id="shopping-cart"><span class="offcanvas-close"><i class="fe-icon-x"></i></span>
+      <div class="offcanvas-container is-triggered offcanvas-container-reverse" id="shopping-cart"><span class="offcanvas-close"><i class="fas fa-times"></i></span>
         <div class="px-4">
           <h6>Votre panier</h6>
           <div class="widget widget-cart pt-2">
@@ -61,10 +61,9 @@
                 <div class="featured-product-info">
                   <h5 class="featured-product-title"><%= link_to cart_item.item.title, item_path(cart_item.item.id) %></h5><span class="featured-product-price"><%= cart_item.item.price %> €</span>
                 </div>
-                <!-- <span class="remove-product"><i class="fe-icon-x"></i></span> -->
                 <span class="remove-product">
               <%= link_to cart_item_path(cart_item.id), method: "delete", :class => "text-decoration-none", data: { confirm: "Are you sure about deleting this item from your list ?"} do %>
-              <i class="fe-icon-x"></i>
+              <i class="fas fa-times"></i>
               <% end %>
               </span>
               </div>

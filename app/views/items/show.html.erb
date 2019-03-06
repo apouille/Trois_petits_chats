@@ -6,9 +6,9 @@
       <a class="portfolio-thumb" style="background-image: url(<%= @item.image_url %>);"></a>
         <div class="card-body">
           <div class="portfolio-meta">
-            <span class="mr-3"><i class="fe-icon-user"></i> <%= @item.author %></span>
-            <span class="mr-3"><i class="fe-icon-heart text-accent"></i>12 </span>
-            <i class="fe-icon-bookmark"></i><a href="#"> Chaton</a>, <a href="#">mignon</a>
+            <span class="mr-3"><i class="far fa-user"></i> <%= @item.author %></span>
+            <span class="mr-3"><i class="far fa-heart"></i> 12 </span>
+            <i class="far fa-bookmark"></i><a href="#"> Chaton</a>, <a href="#">mignon</a>
           </div>
           <h2 class="h3 font-weight-bold block-title"><%= @item.title %></h2>
           <h3 class="h4 font-weight-light"><%= @item.price %> €</h3>
@@ -32,8 +32,8 @@
             <div class="col-sm-8">-->
             <div class="col-sm-12">
               <div class="pt-4 hidden-sm-up"></div>
-              <!-- <button class="btn btn-primary btn-block m-0" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="fe-icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="fe-icon-shopping-cart"></i> Add to Cart</button> -->
-    <!--            <button class="btn btn-primary btn-block m-0" type="button" data-toggle="modal" data-target="#modalCentered"><i class="fe-icon-shopping-cart"></i>
+              <!-- <button class="btn btn-primary btn-block m-0" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="fe-icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="fas fa-shopping-cart"></i> Add to Cart</button> -->
+    <!--            <button class="btn btn-primary btn-block m-0" type="button" data-toggle="modal" data-target="#modalCentered"><i class="fas fa-shopping-cart"></i>
               </button>  -->
                 <%= button_to "Add to cart", cart_items_path(params[:id]), method: :post, :class => "btn btn-primary btn-block m-0", "data-toggle" =>"modal", "data-target" => "#modalCentered", remote: true %>
             </div>
@@ -69,7 +69,7 @@
         <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
-        <p>Photo bien ajoutée au panier 😻</p> 
+        <p>Photo bien ajoutée au panier 😻</p>
       </div>
       <div class="modal-footer">
         <%= button_to "Voir mon panier", cart_path(current_user.carts.last), method: :get, :class => "btn btn-primary btn-sm"%>
