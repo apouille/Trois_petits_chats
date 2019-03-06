@@ -1,13 +1,13 @@
 <%= render 'banner' %>
 
 <!-- Card Top Image -->
-
 <!-- Cards Layout: Deck -->
-<div class="row mt-5 mx-3">
+<div class="row mt-5 mx-md-3">
 
   <!-- Card -->
   <% @items.each do |item| %>
-  <div class="card mb-30">
+  <div class="col-sm-6 col-md-4 col-xs-12">
+  <div class="card mb-30 mx-md-3 mx-xs-0">
     <img src="<%= item.image_url %>" alt="Card image">
     <div class="card-body">
       <h4 class="card-title"><%= item.title %></h4>
@@ -18,6 +18,7 @@
     <div class="card-footer text-muted text-sm">
         <%= link_to "Plus d'infos", item_path(item.id), :class => "btn btn-style-6 btn-gradient" %>    </div>
   </div>
+  </div>
   <% end %>
-</div>
 
+</div>
