@@ -40,7 +40,7 @@
             <ul class="navbar-buttons d-inline-block align-middle mr-lg-2">
               <li><a href="#" data-toggle="search"><i class="fe-icon-search"></i></a></li>
               <%if user_signed_in?%>
-                <li><a href="#shopping-cart" data-toggle="offcanvas"><i class="fe-icon-shopping-cart"></i></a><span class="badge badge-danger">3</span></li>
+                <li><a href="#shopping-cart" data-toggle="offcanvas"><i class="fe-icon-shopping-cart"></i></a><span class="badge badge-danger"><%= number_of_cart_items %></span></li>
               <% end %>
             </ul>
           </div>
@@ -60,7 +60,13 @@
                 </div>
                 <div class="featured-product-info">
                   <h5 class="featured-product-title"><%= link_to cart_item.item.title, item_path(cart_item.item.id) %></h5><span class="featured-product-price"><%= cart_item.item.price %> €</span>
-                </div><span class="remove-product"><i class="fe-icon-x"></i></span>
+                </div>
+                <!-- <span class="remove-product"><i class="fe-icon-x"></i></span> -->
+                <span class="remove-product">
+              <%= link_to cart_item_path(cart_item.id), method: "delete", :class => "text-decoration-none", data: { confirm: "Are you sure about deleting this item from your list ?"} do %>
+              <i class="fe-icon-x"></i>
+              <% end %>
+              </span>
               </div>
             <% end %>
 

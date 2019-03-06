@@ -14,4 +14,9 @@ module CartsHelper
     return subtotal
   end
 
+  def number_of_cart_items
+    current_cart = current_user.carts.find_by("status = 0")
+    return current_cart.cart_items.length
+  end
+
 end
