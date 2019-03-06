@@ -32,17 +32,9 @@ private
 #/ Cas où il a des carts mais aucune d'ouvert
 
   def cart_verification
-    if  current_user.carts.find_by("status = 0") != nil
-      puts "*"*100
-      puts "already have a cart"
-      puts current_user.carts.find_by("status = 0")
-      puts "*"*100
-    else 
-      puts "*"*100
-      puts "don'thave a cart"
-      puts "*"*100
+    if current_user.carts == nil || current_user.carts.find_by("status = 0") == nil
       @cart = Cart.new(user_id: current_user.id, status: 0)
-      @cart.save
+      @cart.save      
     end
   end
 

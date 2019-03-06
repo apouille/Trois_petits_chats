@@ -35,7 +35,11 @@
               <!-- <button class="btn btn-primary btn-block m-0" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="fe-icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="fas fa-shopping-cart"></i> Add to Cart</button> -->
     <!--            <button class="btn btn-primary btn-block m-0" type="button" data-toggle="modal" data-target="#modalCentered"><i class="fas fa-shopping-cart"></i>
               </button>  -->
+                      <% if signed_in?  %>
                 <%= button_to "Add to cart", cart_items_path(params[:id]), method: :post, :class => "btn btn-primary btn-block m-0", "data-toggle" =>"modal", "data-target" => "#modalCentered", remote: true %>
+                      <% else %> 
+                <%= button_to "Login to purchase", new_user_session_path, method: :get, :class => "btn btn-primary btn-block m-0" %>      
+                        <% end %>
             </div>
           </div>
 
@@ -61,6 +65,7 @@
 </div>
 
 <!-- Vertically Centered Modal -->
+<% if signed_in?  %>
 <div class="modal fade" id="modalCentered" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -72,9 +77,13 @@
         <p>Photo bien ajoutée au panier 😻</p>
       </div>
       <div class="modal-footer">
-        <%= button_to "Voir mon panier", cart_path(current_user.carts.last), method: :get, :class => "btn btn-primary btn-sm"%>
+
+         <%= button_to "Voir mon panier", cart_path(current_user.carts.last), method: :get, :class => "btn btn-primary btn-sm"%>
+
         <%= button_to "Continuer mes achats", items_path, method: :get, :class => "btn btn-secondary btn-sm"%>
+
       </div>
     </div>
   </div>
 </div>
+<% end %>
