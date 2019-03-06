@@ -1,3 +1,7 @@
 #small-banner {
   background-image: image-url('fond_chaton');
 }
+.alert .close::before {
+    content: 'x' !important;
+    font-family: sans-serif !important;
+}
