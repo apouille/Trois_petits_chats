@@ -3,7 +3,11 @@
   <!-- Product List View -->
   <div class= "container">
     <div class="card portfolio-card portfolio-list">
+      <% if @item.item_picture.attached? %>
+        <%= image_tag @item.item_picture, alt: 'item picture' %>
+      <% else %>
       <a class="portfolio-thumb" style="background-image: url(<%= @item.image_url %>);"></a>
+      <% end %>
         <div class="card-body">
           <div class="portfolio-meta">
             <span class="mr-3"><i class="far fa-user"></i> <%= @item.author %></span>
@@ -37,8 +41,8 @@
               </button>  -->
                       <% if signed_in?  %>
                 <%= button_to "Add to cart", cart_items_path(params[:id]), method: :post, :class => "btn btn-primary btn-block m-0", "data-toggle" =>"modal", "data-target" => "#modalCentered", remote: true %>
-                      <% else %> 
-                <%= button_to "Login to purchase", new_user_session_path, method: :get, :class => "btn btn-primary btn-block m-0" %>      
+                      <% else %>
+                <%= button_to "Login to purchase", new_user_session_path, method: :get, :class => "btn btn-primary btn-block m-0" %>
                         <% end %>
             </div>
           </div>
