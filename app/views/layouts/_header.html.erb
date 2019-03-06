@@ -1,10 +1,11 @@
-
-
-  <!-- DESKTOPPPPPPPPPPP-->
-
-
 <header class="navbar-wrapper navbar-sticky">
+
       <div class="d-table-cell align-middle pr-md-3"><a class="navbar-brand mr-1"> </a><%=image_tag("logo.png", class: "menu_icon") %></a></div>
+
+    <div class="d-table-cell align-middle pr-md-3">
+      <%= link_to (image_tag("logo.png", class: "menu_icon")), root_path, class:"navbar-brand mr-1" %>
+    </div>
+    
       <div class="d-table-cell w-100 align-middle pl-md-3">
         <div class="navbar justify-content-end justify-content-lg-between">
           <!-- Search-->
@@ -14,7 +15,7 @@
           <!-- Main Menu-->
           <ul class="navbar-nav d-lg-block">
             <!-- Home-->
-            <li class="nav-item mega-dropdown-toggle active"><%= link_to "Trois Petits Chats", root_path, class:"nav-link" %> 
+            <li class="nav-item mega-dropdown-toggle active"><%= link_to "Trois Petits Chats", root_path, class:"nav-link" %>
               <div class="dropdown-menu mega-dropdown">
                 <div class="d-flex">
                 </div>
@@ -24,11 +25,10 @@
             <!-- Account-->
             <li class="nav-item dropdown-toggle"><a class="nav-link">Account</a>
                 <ul class="dropdown-menu">
-                    <%if user_signed_in?%>  
-                      <li class="dropdown-item"> <%= link_to "My Profile", root_path %> </li>
+                    <%if user_signed_in?%>
                       <li class="dropdown-item">  <%= link_to "Edit email / password", edit_user_registration_path %> </li>
                       <li class="dropdown-item"> <%= link_to "Log out", destroy_user_session_path, method: :delete %> </li>
-              
+
                      <% else %>
                       <li class="dropdown-item"> <%= link_to "Log In", new_user_session_path, class:"dropdown-item" %></li>
                       <li class="dropdown-item"><%= link_to "Registration", new_user_registration_path, class:"dropdown-item" %></li>
@@ -37,24 +37,47 @@
                  </ul>
             </li>
 
-            <!-- Components-->
           </ul>
+
+            <!-- Search and shopping-cart-->
           <div>
             <ul class="navbar-buttons d-inline-block align-middle mr-lg-2">
               <li><a href="#" data-toggle="search"><i class="fe-icon-search"></i></a></li>
-              <li><a href="#shopping-cart" data-toggle="offcanvas"><i class="fe-icon-shopping-cart"></i></a><span class="badge badge-danger">3</span></li>
+              <%if user_signed_in?%>
+                <li><a href="#shopping-cart" data-toggle="offcanvas"><i class="fe-icon-shopping-cart"></i></a><span class="badge badge-danger"><%= number_of_cart_items %></span></li>
+              <% end %>
             </ul>
           </div>
         </div>
       </div>
 
+      <!-- Off-Canvas Shopping Cart-->
+      <div class="offcanvas-container is-triggered offcanvas-container-reverse" id="shopping-cart"><span class="offcanvas-close"><i class="fe-icon-x"></i></span>
+        <div class="px-4">
+          <h6>Votre panier</h6>
+          <div class="widget widget-cart pt-2">
 
-    </header>
+            <% current_user.carts.last.cart_items.each do |cart_item| %>
+              <div class="featured-product">
+                <div class="featured-product-thumb">
+                  <img src="<%= cart_item.item.image_url %>" alt="Product Image"/>
+                </div>
+                <div class="featured-product-info">
+                  <h5 class="featured-product-title"><%= link_to cart_item.item.title, item_path(cart_item.item.id) %></h5><span class="featured-product-price"><%= cart_item.item.price %> €</span>
+                </div>
+                <!-- <span class="remove-product"><i class="fe-icon-x"></i></span> -->
+                <span class="remove-product">
+              <%= link_to cart_item_path(cart_item.id), method: "delete", :class => "text-decoration-none", data: { confirm: "Are you sure about deleting this item from your list ?"} do %>
+              <i class="fe-icon-x"></i>
+              <% end %>
+              </span>
+              </div>
+            <% end %>
 
+            <hr class="mt-3 mb-3"><span class="text-sm text-muted">Total :&nbsp;</span><strong><%= total_cart %> €</strong>
+            <%= link_to "Voir le panier", cart_path(current_user.carts.last.id), class:"btn btn-primary btn-block btn-sm mr-2" %>
+          </div>
+        </div>
+      </div>
 
-
-
-
-
-
- 
+</header>
