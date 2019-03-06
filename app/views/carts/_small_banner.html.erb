@@ -1,0 +1,12 @@
+<!-- Small banner -->
+<div id="small-banner" class="page-title d-flex" aria-label="Page title">
+  <div class="container text-left align-self-center">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+        <li class="breadcrumb-item"><%= link_to "Panier", cart_path(@cart.id) %></li>
+      </ol>
+    </nav>
+    <h1 class="page-title-heading">Votre panier</h1>
+  </div>
+</div>
