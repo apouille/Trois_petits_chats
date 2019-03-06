@@ -17,7 +17,7 @@
 
 <!-- Order Summary -->
 
-<div class="container pb-5 mb-2">
+<div class="container pb-5 mb-2" style="border:solid 1px #f5f5f5 ; border-radius: 5px">
 <% current_cart.cart_items.each do |cart_item| %>
 
 
@@ -48,9 +48,6 @@
         <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2"> Subtotal:</span><span class="d-inline-block align-middle text-xl font-weight-medium"><%= total_cart %>€</span></div>
 </div>
 
-</div>
-
-<div class="container">
 
 <div class="wizard-body">
 
@@ -118,12 +115,9 @@
         <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2"> Total :</span><span class="d-inline-block align-middle text-xl font-weight-medium"><%= total_cart + shipping_fees %>€</span></div>
 </div>
 
-</div>
-
 
 <!-- Bank card -->
 
-<div class="container">
 
 <div class="wizard-body">
 
@@ -166,6 +160,3 @@
 </div>
 
 </div>
-
-
-
