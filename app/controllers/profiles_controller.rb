@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
 before_action :authenticate_user!, only: [:show, :edit]
+before_action :profile_owner, only: [:show]
 
   def new
   	@profile = Profile.new
@@ -47,13 +48,24 @@ before_action :authenticate_user!, only: [:show, :edit]
   end
 
   def show
-  	@profile = Profile.find_by(user_id: current_user.id)
+    @user = User.find(params[:id])
+    @profile = Profile.find(params[:id])
+    @cart_all = Cart.all
+    @cart = Cart.find_by(user_id: current_user.id, status: 1)
   end
 
   private
 
   def profile_params
   	params.permit(:first_name, :last_name, :street, :city, :zip_code, :phone_number)
+  end
+
+  def profile_owner
+    @profile_id = current_user.profile.id
+    @url_id = params[:id]
+    unless current_user.profile.id == @url_id.to_i
+      redirect_to root_path
+    end
   end
 
 end

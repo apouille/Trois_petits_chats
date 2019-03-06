@@ -25,6 +25,8 @@
                 <ul class="dropdown-menu">
                     <%if user_signed_in?%>
                       <li class="dropdown-item">  <%= link_to "Edit email / password", edit_user_registration_path %> </li>
+                    <%if current_user_profile?%>
+                      <li class="dropdown-item">  <%= link_to "My orders", profile_path(current_user.profile.id) %> </li> <% end %>
                       <li class="dropdown-item"> <%= link_to "Log out", destroy_user_session_path, method: :delete %> </li>
 
                      <% else %>
