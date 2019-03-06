@@ -40,7 +40,13 @@
     <!--            <button class="btn btn-primary btn-block m-0" type="button" data-toggle="modal" data-target="#modalCentered"><i class="fas fa-shopping-cart"></i>
               </button>  -->
               <% if signed_in?  %>
-                <%= button_to "Add to cart", cart_items_path(params[:id]), method: :post, :class => "btn btn-primary btn-block m-0", "data-toggle" =>"modal", "data-target" => "#modalCentered", remote: true %>
+                <% if new_article? %>
+                  <%= button_to "Add to cart", cart_items_path(params[:id]), method: :post, :class => "btn btn-primary btn-block m-0", "data-toggle" =>"modal", "data-target" => "#modalCentered", remote: true %>
+                  <%else%>
+                    <div class="alert alert-primary" role="alert">
+                    Ce produit est déjà dans votre panier 
+                    </div>
+                  <%end%>
               <% else %>
                 <%= button_to "Login to purchase", new_user_session_path, method: :get, :class => "btn btn-primary btn-block m-0" %>
               <% end %>

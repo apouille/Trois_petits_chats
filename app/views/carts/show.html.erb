@@ -47,13 +47,13 @@
   <div class="col-sm-6 mb-3">
     <%=link_to 'Continuer mes achats', root_path, class:'btn btn-secondary btn-block'%>
   </div>
-
+ <%if number_of_cart_items !=0%>
 	<div class="col-sm-6 mb-3">
     <div id="accordion1">
       <a class="collapsed btn btn-primary btn-block" href="#collapseOne" data-toggle="collapse"><i class="far fa-credit-card"></i> Valider mon panier</a>
     </div>
   </div>
-
+<%end%>
 </div>
 
 <% if current_user_profile? %>
