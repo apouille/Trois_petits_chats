@@ -1,9 +1,10 @@
-1.times do
+3.times do
 	user = User.create!(
 		email: "#{Faker::Name.first_name}@yopmail.com",
 		password: "test1234"
 	)
 end
+
 
 20.times do
    item = Item.create!(
@@ -26,8 +27,21 @@ end
  		city: Faker::Address.city,
  		zip_code: "75000",
  		phone_number: "0033#{rand(100000000..999999999)}",
- 		user: User.all.sample
+ 		user: User.first
  	)
+
+end
+
+1.times do
+  profile = Profile.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    street: Faker::Address.street_address,
+    city: Faker::Address.city,
+    zip_code: "75000",
+    phone_number: "0033#{rand(100000000..999999999)}",
+    user: User.last
+  )
 
 end
 
@@ -42,7 +56,7 @@ end
 1.times do
   cart = Cart.create!(
     status: 1,
-    user: User.first,
+    user: User.last,
     )
   puts 'cart created'
 end
