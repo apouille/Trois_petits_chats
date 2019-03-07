@@ -1,2 +1,2 @@
-class Admin::CartsController < ApplicationController
+class Admin::CartsController < AdminController
 end
