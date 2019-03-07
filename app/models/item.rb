@@ -9,7 +9,7 @@ class Item < ApplicationRecord
 
 
  def to_param
-    [id, title.parameterize].join("-")
+    [id, title.parameterize, 'en solde sur notre boutique trois petits chats'.parameterize].join("-")
   end
 
 

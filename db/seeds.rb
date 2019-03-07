@@ -1,8 +1,15 @@
-3.times do
+2.times do
 	user = User.create!(
 		email: "#{Faker::Name.first_name}@yopmail.com",
 		password: "test1234"
 	)
+end
+1.times do
+  user = User.create!(
+    email: "#{Faker::Name.first_name}@yopmail.com",
+    password: "test1234",
+    is_admin: true,
+  )
 end
 
 20.times do
