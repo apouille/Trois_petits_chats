@@ -30,8 +30,8 @@
                       <li class="dropdown-item"> <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %> </li>
 
                      <% else %>
-                      <li class="dropdown-item"> <%= link_to "Log In", new_user_session_path, class:"dropdown-item" %></li>
-                      <li class="dropdown-item"><%= link_to "Registration", new_user_registration_path, class:"dropdown-item" %></li>
+                      <li class="dropdown-item"> <%= link_to "Connexion", new_user_session_path, class:"dropdown-item" %></li>
+                      <li class="dropdown-item"><%= link_to "Inscription", new_user_registration_path, class:"dropdown-item" %></li>
 
                      <% end %>
                  </ul>

@@ -37,7 +37,7 @@
   <thead>
     <tr>
       <th scope="col">Date commande</th>
-       <th scope="col">Status</th>
+       <th scope="col">Statut</th>
       <th scope="col">Montant Produit </th>
 	  <th scope="col">Frais de livraison</th>
       <th scope="col">Montant total</th>
@@ -46,7 +46,7 @@
   <tbody>
 		    <tr>
 		      <th scope="row"><%= @cart.updated_at %></th>
-		       <td><%= @cart.status %> </td>
+		       <td><span class="badge badge-info m-0"><%= @cart.status %> </td>
 		      <td><%= order_amount(@cart) %> </td>
 		      <td><%= number_of_items(@cart)*2 %> €</td>
 		      <td><%= order_amount(@cart) + (number_of_items(@cart)*2)  %></td>

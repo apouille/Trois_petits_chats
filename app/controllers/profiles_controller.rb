@@ -71,7 +71,7 @@ before_action :verify_user_rights, only: [:show, :edit]
 
   def verify_profile
    unless current_user.profile != nil
-   flash[:error] = "Vous n'avez pas de profile"
+   flash[:error] = "Vous n'avez pas de profil"
    redirect_to root_path
   end
 end

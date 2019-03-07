@@ -21,7 +21,7 @@ class CartItemsController < ApplicationController
 
     if @cart_item.update(quantity: params[:quantity])
     
-      flash[:notice] = "Cart updated"
+      flash[:notice] = "Panier mis à jour"
       redirect_back fallback_location: root_path
 
     end
@@ -32,7 +32,7 @@ class CartItemsController < ApplicationController
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
 
-    flash[:notice] = "Item successfully removed"
+    flash[:notice] = "Produit retiré du panier"
     redirect_back fallback_location: root_path
   end
 
