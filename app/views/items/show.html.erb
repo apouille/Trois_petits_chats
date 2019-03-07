@@ -4,11 +4,11 @@
   <div class= "container">
     <div class="card portfolio-card portfolio-list">
       <% if @item.item_picture.attached? %>
-        <%= image_tag @item.item_picture, alt: 'item picture' %>
+        <%= image_tag @item.item_picture, alt: 'item picture', id:'image_item' %>
       <% else %>
         <a class="portfolio-thumb" style="background-image: url(<%= @item.image_url %>);"></a>
       <% end %>
-        <div class="card-body">
+        <div id="description_item" class="card-body">
           <div class="portfolio-meta">
             <span class="mr-3"><i class="far fa-user"></i> <%= @item.author %></span>
             <span class="mr-3"><i class="far fa-heart"></i> 12 </span>
@@ -51,6 +51,14 @@
                 <%= button_to "Login to purchase", new_user_session_path, method: :get, :class => "btn btn-primary btn-block m-0" %>
               <% end %>
             </div>
+          </div> <!-- fin add-to-cart-button -->
+
+          <!-- Center Aligned -->
+          <div class="text-center">
+            <h5 class="block-title">
+              <%= rand(40..100) %>
+              <small>utilisateurs en train de regarder cet article</small>
+            </h5>
           </div>
 
         </div>
