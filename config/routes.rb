@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :charges, only: [:new, :create]
   
   namespace :admin do
-  	resources :items, only: [:new, :create, :edit, :update, :delete]
+  	resources :items
+    resources :users
+    resources :carts
   	root 'admin#index'
   end
 
