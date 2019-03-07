@@ -4,9 +4,9 @@
   <div class="container text-left align-self-center">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Accueil</a>
+        <li class="breadcrumb-item"><a href="/">Accueil</a>
         </li>
-        <li class="breadcrumb-item"><a href="shop-boxed-ls.html">Paiement</a>
+        <li class="breadcrumb-item"><a href="/charges/new">Paiement</a>
         </li>
       </ol>
     </nav>
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="px-3 my-3 text-center">
-          <div class="cart-item-label">Prix</div><span class="text-xl font-weight-medium"><%=cart_item.item.price %> €</span>
+          <div class="cart-item-label">Prix</div><span class="text-xl font-weight-medium"><%=cart_item.item.price * cart_item.quantity %> €</span>
         </div>
       </div>
   <%end%>
