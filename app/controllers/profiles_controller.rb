@@ -57,8 +57,8 @@ before_action :verify_user_rights, only: [:show, :edit]
   end
 
   def show
-    @user = User.find(params[:id])
-    @profile = Profile.find(params[:id])
+    @user = current_user
+    @profile = Profile.find(@user.profile.id)
     @cart_all = current_user.carts.where(status: 1)
     @cart = Cart.find_by(user_id: current_user.id, status: 1)
   end
