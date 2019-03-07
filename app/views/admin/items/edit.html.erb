@@ -1,0 +1,46 @@
+  <%= render 'small_banner' %>
+
+<div class="content row justify-content-md-center">
+  <div class="card col-lg-6">
+    <div class="card-body">
+  <h1 class="mb-3">Éditer un item</h1>
+
+  <%= form_tag url_for(action: 'update'), method: "patch", multipart: true do %>
+        <div class="form-group">
+          <%= label_tag 'Image :'%>
+          <%= file_field_tag :item_picture  %>
+          <%= label_tag 'Titre :'%>
+          <%= text_field_tag 'title', @item.title, class: "form-control mb-1", placeholder: "Le titre" %>
+          <%= label_tag 'Description :'%>
+          <%= text_area_tag 'description', @item.description, class: "form-control mb-1", placeholder: "Description" %>
+          <%= label_tag 'Prix :'%>
+          <%= text_field_tag 'price', @item.price, class: "form-control mb-1", placeholder: "Prix" %>
+          <%= label_tag 'Auteur :'%>
+          <%= text_field_tag 'author', @item.author, class: "form-control mb-1", placeholder: "Auteur" %>
+          <%= label_tag 'Nombre de vues :'%>
+          <%= text_field_tag 'view', @item.view, class: "form-control mb-1", placeholder: "Vues" %>
+          <%= label_tag 'Dimensions :'%>
+          <%= text_field_tag 'dimension', @item.dimension, class: "form-control mb-1", placeholder: "Dimensions" %>
+          <%= label_tag "Url de l'image  : ()"%>
+          <%= text_field_tag 'image_url', @item.dimension, class: "form-control mb-1", placeholder: "image_url" %>
+          <br />
+          <%= submit_tag "Éditer mon item", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+</div>
+    <% if @item.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+          <p>Nous n'avons pas réussi à créer l'item' pour la (ou les) raison(s) suivante(s) :</p>
+          <ul>
+            <% @item.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+      </div>
+    <% end %>
+</div>
+
+
+
+

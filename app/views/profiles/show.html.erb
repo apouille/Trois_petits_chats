@@ -21,14 +21,14 @@
                      <div class="author-card-cover"></div>
                          <div class="author-card-profile mt-30" >
 	                           <div class="author-card-details">
-	                                <h5 class="author-card-name text-lg">    
+	                                <h5 class="author-card-name text-lg">
                                   <h6><%= @profile.first_name %> <%= @profile.last_name %></h6></h5>
                                   <span class="author-card-position"><%= current_user.created_at %></span>
 	                           </div>
                              <div class="widget widget-contacts">
                 				      <ul>
                 				        <li>
-                                  <i class="fas fa-home"></i> 				          
+                                  <i class="fas fa-home"></i>
                                   <span> Adress </span>
                 				          <a><%= @profile.street %>,<%= @profile.zip_code %>,<%= @profile.city %></a>
                 				        </li>
@@ -47,15 +47,17 @@
                          </div>
                     </div>
               </div>
+              
 
 
 <!-- Buttons -->
           <p>
-            	<%= link_to edit_user_registration_path, class: "btn btn-style-4 btn-secondary btn-sm" do%> 
+            	<%= link_to edit_user_registration_path, class: "btn btn-style-4 btn-secondary btn-sm" do%>
                <span><i class="fas fa-key"></i> Edit email and/or password </span>
                <% end %>
 
-              <%= link_to edit_profile_path(current_user.profile.id), class: "btn btn-style-4 btn-secondary btn-sm" do%> 
+              <%= link_to edit_profile_path(current_user.profile.id), class: "btn btn-style-4 btn-secondary btn-sm" do%>
+
               <span><i class="fas fa-user-edit"></i> Edit profile information </span>
                <% end %>
           </p>
