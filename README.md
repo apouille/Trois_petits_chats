@@ -6,14 +6,15 @@
 
 Trois Petits Chats est un site e-commerce de photos de chats, soit la future licorne française !   
 
-## :information_desk_person: Informations pratiques 
+Voici le lien en production de l'application : <https://troispetitschats.herokuapp.com/>  
+
+## :information_desk_person: Informations Pratiques 
 
 1. Utilisation du thème Bootstrap Create X  
-2. Création de deux applications Heroku (staging et developpement)  
+2. Création de deux applications Heroku (staging et developpement)
+3. Fonctionnalités bonus : changement de quantité et dashboard admin    
 
-## :robot: En production
-
-Voici le lien en production de l'application : <https://troispetitschats.herokuapp.com/>  
+## :construction_worker: Focus Admin
 
 Pour se connecter à l'espace administrateur, connecte toi avec les identifiants suivants :  
 ```
@@ -21,9 +22,11 @@ email : troispetitschats@yopmail.com
 mot de passe : test1234
 ```
 
-Et entre comme url : <https://troispetitschats.herokuapp.com/admin>  
+Puis, entre comme url et balade-toi! : <https://troispetitschats.herokuapp.com/admin>  
 
-## :loudspeaker: Evénements (bonus)
+Aussi, tu peux ajouter une photo de chaton via l'url suivante : <https://troispetitschats.herokuapp.com/items/new>  
+
+## :loudspeaker: Evénements
 
 Parce qu'un site internet ne serait pas rentable sans publicités, je t'invite à te rendre sur les sites ci-dessous :  
 * Claudia a une passion dévorante pour les chats, voyez par vous-même : <https://foudechats.fr/>    
