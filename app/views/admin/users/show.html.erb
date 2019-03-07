@@ -16,7 +16,7 @@
                             <ul>
                                 <li>
                                     <i class="fas fa-home"></i>                   
-                                    <span> Adress </span>
+                                    <span> Adresse </span>
                                     <a><%=  @user.profile.present? ? @profile.street : "N#A" %>, <%= @user.profile.present? ? @profile.zip_code : "N#A" %>, <%= @user.profile.present? ? @profile.city : "N#A"  %></a>
                                 </li>
                                 <li>
@@ -26,7 +26,7 @@
                                 </li>
                                 <li>
                                     <i class="fas fa-phone"></i>
-                                    <span> Number </span>
+                                    <span> Téléphone </span>
                                     <a><%= @user.profile.present? ? @profile.phone_number : "N#A"  %></a>
                               </li>
                           </ul>
@@ -39,7 +39,7 @@
 </div> 
 
 <div class="container pt-5">
-    <h3 class ="m-3"> Commandes passées </h3>
+    <h3 class ="m-3"><i class="fas fa-shipping-fast"></i> Commandes passées </h3>
           <% if @orders[0] == nil %>
               <p class ="m-5"> Aucune commande passée </p>
           <% else %>
@@ -48,7 +48,7 @@
                       <tr>
                           <th scope="col">Date</br><small class="font-italic">Paiement</small></th>
                           <th scope="col">Id</th>
-                          <th scope="col">Status</th>
+                          <th scope="col">Statut</th>
                           <th scope="col">Montant du panier</th>
                           <th scope="col">Frais de livraison</th>
                           <th scope="col">Montant total</th>
@@ -73,7 +73,7 @@
 </div> 
         
 <div class="container mb-5 pb-5">         
-    <h3 class ="m-3"> Panier en cours </h3>
+    <h3 class ="m-3"><i class="fas fa-shopping-basket"></i> Panier en cours </h3>
     <% if @carts[0] == nil %>
         <p class ="ml-5"> Pas de panier en cours </p>
     <% else %>
@@ -94,7 +94,7 @@
                     <tr>
                       <td><%= cart.updated_at %> </td>
                       <td><%= cart.id %> </td>
-                      <td><%= cart.status %> </td>
+                      <td><span class="badge badge-info m-0"><%= cart.status %> </td>
                       <td><%= order_amount(cart)%></td>
                       <td><%= number_of_items(cart)*2 %> €</td>
                       <td><%= order_amount(cart) + (number_of_items(cart)*2) %></td>
