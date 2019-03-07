@@ -5,7 +5,6 @@
 	)
 end
 
-
 20.times do
    item = Item.create!(
    	title: Faker::Creature::Cat.breed,
@@ -29,7 +28,6 @@ end
  		phone_number: "0033#{rand(100000000..999999999)}",
  		user: User.first
  	)
-
 end
 
 1.times do
@@ -60,24 +58,3 @@ end
     )
   puts 'cart created'
 end
-
-
-3.times do
-  cartitems = CartItem.create!(
-    cart: Cart.first,
-    item: Item.all.sample,
-    quantity: 1
-    )
-end
-
-3.times do
-  cartitems = CartItem.create!(
-    cart: Cart.last,
-    item: Item.all.sample,
-    quantity: 1
-    )
-end
-
-
-
-

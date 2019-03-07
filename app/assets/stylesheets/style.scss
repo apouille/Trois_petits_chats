@@ -5,3 +5,9 @@
     content: 'x' !important;
     font-family: sans-serif !important;
 }
+
+@media screen and (min-width: 900px) {
+  #description_item {
+    min-width: 400px;
+  }
+}
