@@ -20,25 +20,10 @@
 
         <!-- Add to cart Button -->
           <div class="row align-items-end pb-4">
-          <!--  Quantity (à décommenter qd on mettra les quantités)
-            <div class="col-sm-4">
-              <div class="form-group mb-0"">
-                <label for="quantity">Quantity</label>
-                <select class="form-control" id="quantity">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-sm-8">-->
+       
             <div class="col-sm-12">
               <div class="pt-4 hidden-sm-up"></div>
-              <!-- <button class="btn btn-primary btn-block m-0" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="fe-icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="fas fa-shopping-cart"></i> Add to Cart</button> -->
-    <!--            <button class="btn btn-primary btn-block m-0" type="button" data-toggle="modal" data-target="#modalCentered"><i class="fas fa-shopping-cart"></i>
-              </button>  -->
+       
               <% if signed_in?  %>
                 <% if new_article? %>
                   <%= button_to "Add to cart", cart_items_path(params[:id].to_i), method: :post, :class => "btn btn-primary btn-block m-0", "data-toggle" =>"modal", "data-target" => "#modalCentered", remote: true %>
@@ -63,7 +48,38 @@
 
         </div>
     </div>
-  </div> <!-- fin container -->
+<br>
+<br>
+<h4>Produits les plus consultés</h4>
+<div class="row mt-5 mx-md-3">
+
+  <!-- Card -->
+  <% @best_items.each do |item| %>
+  <div class="col-sm-6 col-md-4 col-xs-12">
+  <div class="card mb-30 mx-md-3 mx-xs-0">
+    <% if item.item_picture.attached? %>
+      <%= image_tag item.item_picture, alt: 'item picture' %>
+    <% else %>
+      <img src="<%= item.image_url %>" alt="Card image">
+    <% end %>
+    <div class="card-body">
+      <h4 class="card-title"><%= item.title %></h4>
+      <p class="card-text"> Description : <%= item.description %></p>
+      <p class="card-text"> Price : <%= item.price %> €</p>
+    </div>
+    <div class="card-footer text-muted text-sm">
+        <%= link_to "Voir le produit", item_path(item), :class => "btn btn-style-6 btn-gradient" %>  
+      
+    </div>
+  </div>
+  </div>
+  <% end %>
+
+</div> <!-- fin row -->
+
+
+
+ </div> <!-- fin container -->
 
 
 <!-- Social Networks Widget -->
@@ -105,3 +121,5 @@
     </div>
   </div>
 <% end %>
+
+
