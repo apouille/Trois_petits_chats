@@ -1,4 +1,5 @@
-![alt text](https://media.giphy.com/media/mM08Ca5WLdJw4/giphy.gif)
+
+![alt text](https://media.giphy.com/media/mM08Ca5WLdJw4/giphy.gif)   
 :arrow_up: Toi quand tu push sur Heroku Prod et qu'Heroku t'envoie bouler !
 
 ## :kissing_cat: Trois Petits Chats - Project 
@@ -34,14 +35,11 @@ rails db:reset
 ## :loudspeaker: Evénements (bonus)
 
 Parce qu'un site internet ne serait pas rentable sans publicités, je t'invite à te rendre sur les sites ci-dessous :  
-1. Le site e-commerce de Claudia : 
-⋅⋅⋅ Claudia a une passion dévorante pour les chats, voyez par vous-même : <https://foudechats.fr/>  
-2.  La mission escalade de Max :  
-⋅⋅⋅ Max a besoin de monde pour aller faire de l'escale : <https://nation.arkose.com/>  
-3. En bonus, un site sympa sur les chats (c'est pas du porno, promis!) :
-⋅⋅⋅ <http://grattemoilachatte.ch/>  
+* Claudia a une passion dévorante pour les chats, voyez par vous-même : <https://foudechats.fr/>    
+* Max a besoin de monde pour aller faire de l'escalade, venez nombreux! : <https://nation.arkose.com/>  
+* En bonus, un site sympa sur les chats (c'est pas du porno, promis!) : <http://grattemoilachatte.ch/>  
 
-#### Built with :heart: by : 
+## Built with :heart: by : 
 
 Viviane de Petigny  
 Claudia Partonneau    
