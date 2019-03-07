@@ -1,6 +1,6 @@
 class Admin::ItemsController < AdminController
   def index
-    @items = Item.all.reverse
+    @items = Item.all.order(:id).reverse
   end
 
   def new

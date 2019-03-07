@@ -1,8 +1,8 @@
 class Admin::CartsController < AdminController
 
 	def index
-	@orders = Cart.all.where("status=1")
-	@carts = Cart.all.where("status=0")
+	@orders = Cart.all.where("status=1").order(:id)
+	@carts = Cart.all.where("status=0").order(:id)
 	end
 
 	def show
