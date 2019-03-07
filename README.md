@@ -15,22 +15,13 @@ Trois Petits Chats est un site e-commerce de photos de chats, soit la future lic
 
 Voici le lien en production de l'application : <https://troispetitschats.herokuapp.com/>  
 
-
-## :gear: En local 
-
-Comment runner notre application en local :  
-
-1/ Clone le repo github : <https://github.com/apouille/Trois_petits_chats>  
-
-2/ Ajoute les gems : fais un Bundle Install  
+Pour se connecter à l'espace administrateur, connecte toi avec les identifiants suivants :  
 ```
-bundle install
+email : troispetitschats@yopmail.com
+mot de passe : test1234
 ```
 
-3/ Crée ta base de données, lance les migrations et le seed (3 en 1) :
-```
-rails db:reset
-```
+Et entre comme url : <https://troispetitschats.herokuapp.com/admin>  
 
 ## :loudspeaker: Evénements (bonus)
 
