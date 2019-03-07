@@ -22,13 +22,13 @@
             <h4 class="cart-item-product-title">
               <%= link_to cart_item.item.title, item_path(cart_item.item.id), class:"" %>
               </h4>
-            <span><strong>Dimension:</strong> <%=cart_item.item.dimension %></span>
-            <span><strong>Author:</strong><%=cart_item.item.author %></span>
+            <span><strong>Dimension : </strong> <%=cart_item.item.dimension %></span>
+            <span><strong> Photographe : </strong><%=cart_item.item.author %></span>
           </div>
         </div>
       </div>
       <div class="px-3 my-3 text-center">
-        <div class="cart-item-label">Quantity</div>
+        <div class="cart-item-label">Quantité</div>
           <div class="count-input">
             <%= form_tag cart_item_path(cart_item.id), method: "patch" do %>
               <%= select_tag(:quantity, options_for_select([['1', 1], ['2', 2], ['3', 3]], selected: cart_item.quantity ), :class => 'form-control') %>
@@ -39,7 +39,7 @@
           </div>
       </div>
       <div class="px-3 my-3 text-center">
-        <div class="cart-item-label">Price</div><span class="text-xl font-weight-medium"><%=cart_item.item.price * cart_item.quantity%></span>
+        <div class="cart-item-label">Prix</div><span class="text-xl font-weight-medium"><%=cart_item.item.price * cart_item.quantity%></span>
       </div>
     </div>
   <%end%> <!-- items panier -->
@@ -47,7 +47,7 @@
 
 <div class="d-sm-flex justify-content-between align-items-center text-center text-sm-right">
 
-        <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">Sous-total:</span><span class="d-inline-block align-middle text-xl font-weight-medium"><%= total_cart %></span></div>
+        <div class="py-2"><span class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">Sous-total:</span><span class="d-inline-block align-middle text-xl font-weight-medium"><%= total_cart %> € </span></div>
 </div>
 
 

@@ -50,6 +50,7 @@
     </div>
 <br>
 <br>
+
 <h4>Produits les plus consultés</h4>
 <div class="row mt-5 mx-md-3">
 
@@ -65,7 +66,7 @@
     <div class="card-body">
       <h4 class="card-title"><%= item.title %></h4>
       <p class="card-text"> Description : <%= item.description %></p>
-      <p class="card-text"> Price : <%= item.price %> €</p>
+      <p class="card-text"> Prix : <%= item.price %> €</p>
     </div>
     <div class="card-footer text-muted text-sm">
         <%= link_to "Voir le produit", item_path(item), :class => "btn btn-style-6 btn-gradient" %>  
@@ -85,7 +86,7 @@
 <!-- Social Networks Widget -->
 <div class= "container">
   <div class="widget p-5">
-    <h4 class="widget-title">Social networks</h4>
+    <h4 class="widget-title"> Réseaux Sociaux </h4>
     <a class="social-btn sb-style-6 sb-facebook" href="#" data-placement="top" title="Facebook">
       <i class="socicon-facebook"></i>
     </a>
