@@ -10,12 +10,6 @@ before_action :cart_verification, only: [:index]
   @item = Item.find(params[:id].to_i)
   @item.increment!(:view)
   @best_items = Item.all.order('view DESC').first(3)
-  puts '$'*100
-  puts @best_items
-  puts @best_items.first.view
-  puts @best_items.last.view
-  puts @best_items[2].view
-
   end
 
   def new
