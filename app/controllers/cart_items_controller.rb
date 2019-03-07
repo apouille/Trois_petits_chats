@@ -17,6 +17,15 @@ class CartItemsController < ApplicationController
   end
 
   def update
+    @cart_item = CartItem.find(params[:id])
+
+    if @cart_item.update(quantity: params[:quantity])
+    
+      flash[:notice] = "Cart updated"
+      redirect_back fallback_location: root_path
+
+    end
+
   end
 
   def destroy
