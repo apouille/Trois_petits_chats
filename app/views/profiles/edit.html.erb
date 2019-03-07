@@ -9,16 +9,16 @@
           <div class="form-group">
             <%= f.text_field :first_name, class: 'form-control', placeholder: 'Prénom'%></br>
             <%= f.text_field :last_name, class: 'form-control', placeholder: 'Nom'%></br>
-            <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Numéro de téléphone'%></br>  
+            <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Numéro de téléphone'%></br>
           </div>
           <h2 class="h5 mb-3 font-weight-normal text-left">Mon adresse de facturation</h2>
-          <div class="form-group">  
+          <div class="form-group">
             <%= f.text_field :street, class: 'form-control', placeholder: 'Rue'%></br>
-            <%= f.text_field :city, class: 'form-control', placeholder: 'Ville'%></br> 
-            <%= f.text_field :zip_code, class: 'form-control', placeholder: 'Code Postal'%></br>   
-          <small class="text-gray">* Champs obligatoires</small> 
+            <%= f.text_field :city, class: 'form-control', placeholder: 'Ville'%></br>
+            <%= f.text_field :zip_code, class: 'form-control', placeholder: 'Code Postal'%></br>
+          <small class="text-gray">* Champs obligatoires</small>
           </div>
-          <div class="form-actions mt-3">  
+          <div class="form-actions mt-3">
             <button type="submit" class="btn btn-secondary"> Mettre à jour </button>
           </div>
         <% end %>
