@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Confirmation de commande</h1>
+    <p>
+      Merci pour ta commande 😻 ! <br>
+      Voici tes magnifiques photos de chatons :
+    </p>
+      <% @items.each do |i| %>
+        <p>– <%= link_to i.item.title, url_for(i.item.item_picture) %></p>
+      <% end %>
+    <p>
+      Pour accéder à ton espace client, connecte-toi via :  <%= @url %>.
+    </p>
+    <p> À très vite sur http://troispetitschats-prod.herokuapp.com ! </p>
+    <p> Chamicalement, <br>
+    Toute l'équipe de Trois petits chats 😺 </p>
+  </body>
+</html>

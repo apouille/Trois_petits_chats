@@ -1,0 +1,17 @@
+Confirmation de commande
+==========================================================
+
+Merci pour ta commande 😻 !
+Voici tes magnifiques photos de chatons :
+
+      <% @items.each do |i| %>
+        - <%= url_for(i.item.item_picture) %>
+      <% end %>
+
+Pour accéder à ton espace client, connecte-toi via :  <%= @url %>.
+
+À très vite sur http://troispetitschats-prod.herokuapp.com !
+
+Chamicalement,
+Toute l'équipe de Trois petits chats 😺
+
