@@ -44,7 +44,7 @@
                   <%= button_to "Add to cart", cart_items_path(params[:id]), method: :post, :class => "btn btn-primary btn-block m-0", "data-toggle" =>"modal", "data-target" => "#modalCentered", remote: true %>
                   <%else%>
                     <div class="alert alert-primary" role="alert">
-                    Ce produit est déjà dans votre panier 
+                    Ce produit est déjà dans votre panier
                     </div>
                   <%end%>
               <% else %>
