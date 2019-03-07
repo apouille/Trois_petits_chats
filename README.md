@@ -28,7 +28,7 @@ Et entre comme url : <https://troispetitschats.herokuapp.com/admin>
 Parce qu'un site internet ne serait pas rentable sans publicités, je t'invite à te rendre sur les sites ci-dessous :  
 * Claudia a une passion dévorante pour les chats, voyez par vous-même : <https://foudechats.fr/>    
 * Max a besoin de monde pour aller faire de l'escalade, venez nombreux! : <https://nation.arkose.com/>  
-* En bonus, un site sympa sur les chats (c'est pas du porno, promis!) : <http://grattemoilachatte.ch/>  
+* En bonus, un site sympa sur les chats : <http://grattemoilachatte.ch/>  
 
 ## Built with :heart: by : 
 
