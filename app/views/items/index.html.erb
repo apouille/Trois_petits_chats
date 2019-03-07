@@ -17,7 +17,9 @@
       <p class="card-text"> Price : <%= item.price %> €</p>
     </div>
     <div class="card-footer text-muted text-sm">
-        <%= link_to "Voir le produit", item_path(item.id), :class => "btn btn-style-6 btn-gradient" %>    </div>
+        <%= link_to "Voir le produit", item_path(item), :class => "btn btn-style-6 btn-gradient" %>  
+      
+    </div>
   </div>
   </div>
   <% end %>
