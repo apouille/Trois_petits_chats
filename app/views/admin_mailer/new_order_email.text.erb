@@ -1,0 +1,19 @@
+Nouvelle commande
+==========================================================
+
+Une nouvelle commande vient d'arriver 😻 !
+
+Commande de <%= @user.profile.first_name + " " + @user.profile.last_name %> d'un montant de <%= @total %> €
+
+Ses articles :
+
+      <% @cart_items.each do |i| %>
+        - <%= url_for(i.item.item_picture) %>
+      <% end %>
+
+Pour accéder à ton espace admin, connecte-toi via :  <%= @url %>.
+
+À très vite sur http://troispetitschats.herokuapp.com !
+
+Chamicalement,
+Toute l'équipe de Trois petits chats 😺
