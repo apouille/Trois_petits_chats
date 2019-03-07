@@ -1,1 +1,103 @@
-coucou toi
+<div class="container mt-5 mb-5">
+    <div class ="row">
+        <div class="card col-12">
+            <div class="card-body">
+                <div class="author-card pb-3">
+                    <div class="author-card-cover"></div>
+                        <div class="author-card-profile mt-30" >
+                            <div class="author-card-details">
+                            <h5 class="author-card-name text-lg">
+                            <h6><%= @user.profile.present? ? @profile.first_name  : "N#A" %> <%= @user.profile.present? ? @profile.last_name  : "N#A"  %></h6></h5>
+                            <span class="author-card-position"><%= @user.created_at %></span>
+                        </div>
+                        <div class="widget widget-contacts">
+                            <ul>
+                                <li>
+                                    <i class="fas fa-home"></i>                   
+                                    <span> Adress </span>
+                                    <a><%=  @user.profile.present? ? @profile.street : "N#A" %>, <%= @user.profile.present? ? @profile.zip_code : "N#A" %>, <%= @user.profile.present? ? @profile.city : "N#A"  %></a>
+                                </li>
+                                <li>
+                                    <i class="fas fa-at"></i>
+                                    <span> Email </span>
+                                    <a><%= @user.profile.present? ? @profile.user.email : "N#A" %></a>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone"></i>
+                                    <span> Number </span>
+                                    <a><%= @user.profile.present? ? @profile.phone_number : "N#A"  %></a>
+                              </li>
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+<div class="container pt-5">
+    <h6 class ="m-3"> Commandes passées </h6>
+          <% if @orders[0] == nil %>
+              <p class ="m-5"> Aucune commande passée </p>
+          <% else %>
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th scope="col">Date</br><small class="font-italic">Paiement</small></th>
+                          <th scope="col">Id</th>
+                          <th scope="col">Status</th>
+                          <th scope="col">Montant du panier</th>
+                          <th scope="col">Frais de livraison</th>
+                          <th scope="col">Montant total</th>
+                          <th scope="col">Voir détail</th>
+                      </tr>
+                  </thead>
+                  <% @orders.each_with_index do |order, i| %>
+                      <tbody>
+                          <tr>
+                            <td><%= order.updated_at %> </td>
+                            <td><%= order.id %> </td>
+                            <td><%= order.status %> </td>
+                            <td><%= order_amount(cart)%></td>
+                            <td><%= number_of_items(order)*2 %> €</td>
+                            <td><%= order_amount(order) + (number_of_items(order)*2) %></td>
+                            <td><%=link_to 'Détail Commande', admin_cart_path(cart.id), class:"btn btn-primary"%></td>
+                            </tr>
+                      </tbody>
+                  <% end %>
+             </table>
+         <% end %>
+</div>         
+<div class="container mb-5 pb-5">         
+    <h6 class ="m-3"> Panier en cours </h6>
+    <% if @carts[0] == nil %>
+        <p class ="ml-5"> Pas de panier en cours </p>
+    <% else %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Date</br><small class="font-italic">Dernier changement</small></th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Montant du panier</th>
+                    <th scope="col">Frais de livraison</th>
+                    <th scope="col">Montant total</th>
+                    <th scope="col">Voir détail</th>
+                </tr>
+            </thead>
+            <% @carts.each_with_index do |cart, i| %>
+                <tbody>
+                    <tr>
+                      <td><%= cart.updated_at %> </td>
+                      <td><%= cart.id %> </td>
+                      <td><%= cart.status %> </td>
+                      <td><%= order_amount(cart)%></td>
+                      <td><%= number_of_items(cart)*2 %> €</td>
+                      <td><%= order_amount(cart) + (number_of_items(cart)*2) %></td>
+                      <td><%=link_to 'Détail Panier', admin_cart_path(cart.id), class:"btn btn-primary"%>
+                      </tr>
+                </tbody>
+            <% end %>
+       </table>
+    <% end %>  
+</div>
