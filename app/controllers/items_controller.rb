@@ -1,12 +1,14 @@
 class ItemsController < ApplicationController
 before_action :cart_verification, only: [:index]
 
+
   def index
     @items = Item.all
   end
 
   def show
-  	@item = Item.find(params[:id])
+  @item = Item.find(params[:id])
+  #@item = Item.friendly.find(params[:id])
   end
 
   def new
