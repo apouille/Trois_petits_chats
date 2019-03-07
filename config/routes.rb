@@ -10,9 +10,7 @@ Rails.application.routes.draw do
   resources :charges, only: [:new, :create]
   
   namespace :admin do
-  	resources :users
-  	resources :profiles
-  	resources :items
+  	resources :items, only: [:new, :create, :edit, :update, :delete]
   	root 'admin#index'
   end
 
