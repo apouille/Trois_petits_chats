@@ -55,7 +55,7 @@
                <span><i class="fas fa-key"></i> Edit email and/or password </span>
                <% end %>
 
-              <%= link_to edit_profile_path, class: "btn btn-style-4 btn-secondary btn-sm" do%> 
+              <%= link_to edit_profile_path(current_user.profile.id), class: "btn btn-style-4 btn-secondary btn-sm" do%> 
               <span><i class="fas fa-user-edit"></i> Edit profile information </span>
                <% end %>
           </p>
