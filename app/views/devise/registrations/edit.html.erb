@@ -4,7 +4,7 @@
       <br><br><br>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), class:'beautiful-devise', html: { method: :put }) do |f| %>
          <div class='beautiful-devise'>
-        <h1 class="h3 mb-3 font-weight-normal text-center">Edit <%= resource_name.to_s.humanize %></h1>
+        <h1 class="h3 mb-3 font-weight-normal text-center">Modifier ses accès <%= resource_name.to_s.humanize %></h1>
       <%= f.error_notification %>
 
                 <div class="form-inputs">
@@ -23,7 +23,7 @@
 
 
                       <div class="form-group">
-                          <%= f.label :current_password %><br />
+                          <%= f.label :mot_de_passe_actuel %><br />
                           <%= f.password_field :current_password,
                                   hint: "we need your current password to confirm your changes",
                                   required: true,
@@ -32,7 +32,7 @@
 
 
                       <div class="form-group">
-                              <%= f.label :new_password %>
+                              <%= f.label :nouveau_mot_de_passe %>
                               <% if @minimum_password_length %>
                               <em>(<%= @minimum_password_length %> characters minimum)</em>
                               <% end %><br />
@@ -47,7 +47,7 @@
                     
 
                           <div class="form-group">
-                          <%= f.label :new_password_confirmation %><br />
+                          <%= f.label :confirmation_du_nouveau_mot_de_passe %><br />
                           <%= f.password_field :password_confirmation, required: false, autocomplete: "new-password", class: "form-control" %>
                       </div>
 
