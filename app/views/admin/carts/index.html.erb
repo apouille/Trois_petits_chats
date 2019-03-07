@@ -1,8 +1,8 @@
 
 
 
-<div class="container">
-	<h2>Les commandes validées</h2>
+<div class="container mt-5">
+	<h3><i class="fas fa-shipping-fast"></i> Les commandes validées</h3>
 	<br><br>
 <table class="table">
   <thead>
@@ -20,22 +20,23 @@
  <% @orders.each do |order| %>
     <tr>
       <th scope="row"><%= order.id %></th>
-      <td><%= order.status %> </td>
+      <td><span class="badge badge-success m-0"><%= order.status %> </td>
       <td><%=order_amount(order) %> €</td>
       <td><%= order.updated_at %></td>
       <td><%= order.user.email%></td>  
       <td><%= order.user.id%></td>
-      <td><%=link_to 'détail de la commande', admin_cart_path(order), class:'btn btn-primary' %></td>
+      <td><%=link_to 'détail de la commande', admin_cart_path(order), class:'btn btn-secondary' %></td>
     </tr>
 <%end%>
   </tbody>
 </table>
+</div>
 
+<div class="container mt-5">
 
-<h2>Les paniers en cours</h2>
+<h3><i class="fas fa-shopping-basket"></i> Les paniers en cours</h3>
 
 <br><br>
-<div class="container">
 <table class="table">
   <thead>
     <tr>
@@ -52,12 +53,12 @@
  <% @carts.each do |cart| %>
     <tr>
       <th scope="row"><%= cart.id %></th>
-      <td><%= cart.status %> </td>
+      <td><span class="badge badge-info m-0"><%= cart.status %> </td>
       <td><%= order_amount(cart) %> €</td>
       <td><%= cart.updated_at %></td>
       <td><%= cart.user.email%></td>  
       <td><%= cart.user.id%></td>
-      <td><%=link_to 'Voir le panier', admin_cart_path(cart), class:'btn btn-primary' %></td>
+      <td><%=link_to 'Voir le panier', admin_cart_path(cart), class:'btn btn-secondary' %></td>
     </tr>
 <%end%>
   </tbody>

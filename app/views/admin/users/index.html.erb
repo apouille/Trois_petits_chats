@@ -1,0 +1,28 @@
+
+
+<div class="container mt-5">
+	<h3> <i class="far fa-id-card"></i> Récapitulatif Users </h3>
+	<br><br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col"> Nom </th>
+      <th scope="col"> Prénom </th>
+      <th scope="col"> Email </th>
+      <th scope="col">Détail commande</th>
+    </tr>
+  </thead>
+  <tbody>
+ <% @users.each do |user| %>
+    <tr>
+      <th scope="row"><%= user.id %></th>
+      <td><%= user.profile.present? ? user.profile.last_name : "N#A" %> </td>
+      <td><%= user.profile.present? ? user.profile.first_name : "N#A" %> </td>
+      <td><%= user.email %> </td>
+      <td><%=link_to 'Voir les commandes', admin_user_path(user.id), class:'btn btn-secondary' %></td>
+    </tr>
+<%end%>
+  </tbody>
+</table>
+</div>
