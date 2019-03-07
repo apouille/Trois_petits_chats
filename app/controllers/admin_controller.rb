@@ -1,4 +1,4 @@
-class AdminsController < ApplicationController
+class AdminController < ApplicationController
 
 	def require_admin
 	  unless current_user.try(:is_admin?)
