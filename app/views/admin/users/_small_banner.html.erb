@@ -1,0 +1,12 @@
+    <!-- Small banner -->
+    <div id="small-banner" class="page-title d-flex" aria-label="Page title">
+      <div class="container text-left align-self-center">
+        <h1 class="page-title-heading">Admin User n°<%= @user.id%></h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><%= link_to "Home Admin", admin_root_path %></li>
+            <li class="breadcrumb-item"><%= link_to "Tous les utilisateurs", admin_users_path %></li>
+          </ol>
+        </nav>
+      </div>
+    </div>
