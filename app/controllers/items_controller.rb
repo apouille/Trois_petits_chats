@@ -3,7 +3,7 @@ before_action :cart_verification, only: [:index]
 
 
   def index
-    @items = Item.all
+    @items = Item.all.order(:id).reverse
   end
 
   def show

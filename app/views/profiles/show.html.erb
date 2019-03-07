@@ -1,13 +1,13 @@
 
 <div id="small-banner" class="page-title d-flex" aria-label="Page title">
       <div class="container text-left align-self-center">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
-            <li class="breadcrumb-item"><%= link_to "Shop", root_path %></li>
-          </ol>
-        </nav>
-        <h1 class="page-title-heading"> Mon espace Profil </h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><%= link_to "Accueil", root_path %></li>
+                  <li class="breadcrumb-item"><%= link_to "Profil", root_path %></li>
+              </ol>
+          </nav>
+          <h1 class="page-title-heading"> Mon espace Profil </h1>
       </div>
 </div>
 
@@ -26,23 +26,23 @@
                                   <span class="author-card-position"><%= current_user.created_at %></span>
 	                           </div>
                              <div class="widget widget-contacts">
-                				      <ul>
-                				        <li>
-                                  <i class="fas fa-home"></i>
-                                  <span> Adress </span>
-                				          <a><%= @profile.street %>,<%= @profile.zip_code %>,<%= @profile.city %></a>
-                				        </li>
-                				        <li>
-                				          <i class="fas fa-at"></i>
-                				          <span> Email </span>
-                				          <a><%= @profile.user.email %></a>
-                				        </li>
-                				        <li>
-                				          <i class="fas fa-phone"></i>
-                				          <span> Number </span>
-                				          <a><%= @profile.phone_number %></a>
-                				        </li>
-                				      </ul>
+                  				      <ul>
+                    				        <li>
+                                        <i class="fas fa-home"></i>
+                                        <span> Adresse </span>
+                      				          <a><%= @profile.street %>,<%= @profile.zip_code %>,<%= @profile.city %></a>
+                    				        </li>
+                    				        <li>
+                      				          <i class="fas fa-at"></i>
+                      				          <span> Email </span>
+                      				          <a><%= @profile.user.email %></a>
+                    				        </li>
+                    				        <li>
+                      				          <i class="fas fa-phone"></i>
+                      				          <span> Téléphone </span>
+                      				          <a><%= @profile.phone_number %></a>
+                    				        </li>
+                  				      </ul>
                 				    </div>
                          </div>
                     </div>
@@ -53,12 +53,12 @@
 <!-- Buttons -->
           <p>
             	<%= link_to edit_user_registration_path, class: "btn btn-style-4 btn-secondary btn-sm" do%>
-               <span><i class="fas fa-key"></i> Edit email and/or password </span>
+                  <span><i class="fas fa-key"></i> Editer email et/ou mot de passe </span>
                <% end %>
 
               <%= link_to edit_profile_path(current_user.profile.id), class: "btn btn-style-4 btn-secondary btn-sm" do%>
 
-              <span><i class="fas fa-user-edit"></i> Edit profile information </span>
+              <span><i class="fas fa-user-edit"></i> Editer les informations du profil </span>
                <% end %>
           </p>
       </div>
@@ -69,9 +69,9 @@
             <table class="table table-hover mb-0">
               <thead>
                 <tr>
-                  <th>Order #</th>
-                  <th>Date Purchased</th>
-                  <th>Status</th>
+                  <th>Commande #</th>
+                  <th>Date d'achat</th>
+                  <th>Statut</th>
                   <th>Total</th>
                 </tr>
               </thead>
@@ -82,7 +82,7 @@
                   <td><a class="navi-link" data-toggle="modal"><%=order.id %></a></td>
                   <td><%=order.created_at %></td>
                   <td><span class="badge badge-success m-0"><%=order.status %></span>
-                  <td><%=order_amount(order) %>€</td>
+                  <td><%= order_amount(order) + (number_of_items(order)*2)  %>€</td>
                 </tr>
                 <% end %>
               </tbody>

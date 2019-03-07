@@ -57,8 +57,8 @@ before_action :verify_user_rights, only: [:show, :edit]
   end
 
   def show
-    @user = User.find(params[:id])
-    @profile = Profile.find(params[:id])
+    @user = current_user
+    @profile = Profile.find(@user.profile.id)
     @cart_all = current_user.carts.where(status: 1)
     @cart = Cart.find_by(user_id: current_user.id, status: 1)
   end
@@ -71,7 +71,7 @@ before_action :verify_user_rights, only: [:show, :edit]
 
   def verify_profile
    unless current_user.profile != nil
-   flash[:error] = "Vous n'avez pas de profile"
+   flash[:error] = "Vous n'avez pas de profil"
    redirect_to root_path
   end
 end
