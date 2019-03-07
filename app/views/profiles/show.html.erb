@@ -1,68 +1,74 @@
 
-    <!-- Page Title-->
-    <div class="page-title d-flex" aria-label="Page title" style="background-image: url(img/page-title/shop-pattern.jpg);">
+<div id="small-banner" class="page-title d-flex" aria-label="Page title">
       <div class="container text-left align-self-center">
-        <h1 class="page-title-heading">My Orders</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+            <li class="breadcrumb-item"><%= link_to "Shop", root_path %></li>
+          </ol>
+        </nav>
+        <h1 class="page-title-heading"> Mon espace Profil </h1>
       </div>
-    </div>
+</div>
 
 
 <!-- Contacts Card Default -->
 <div class="container">
-<div class="row">
-<div class="card col-6">
-  <div class="card-body">
-  	   <div class="author-card pb-3">
-            <div class="author-card-cover" style="background-image: url(img/widgets/author/cover.jpg);"><a class="btn btn-light btn-sm" href="#" data-toggle="tooltip" title="You currently have 290 Reward points to spend"><i class="fe-icon-award text-md"></i>&nbsp;290 points</a></div>
-
-            <div class="author-card-profile mt-30" >
-	          
-
-	              <div class="author-card-details">
-	                <h5 class="author-card-name text-lg">    <h6><%= @profile.first_name %> <%= @profile.last_name %></h6></h5><span class="author-card-position"><%= current_user.created_at %></span>
-	              </div>
-
-	             	<div class="widget widget-contacts">
-				      <ul>
-				        <li>
-				          <i class="fe-icon-map-pin"></i>
-				          <span> Adress </span>
-				          <a><%= @profile.street %>,<%= @profile.zip_code %>,<%= @profile.city %></a>
-				        </li>
-				        <li>
-				          <i class="fe-icon-phone"></i>
-				          <span> Email </span>
-				          <a><%= @profile.phone_number %></a>
-				        </li>
-				        <li>
-				          <i class="fe-icon-mail"></i>
-				          <span> Number </span>
-				          <a><%= @profile.phone_number %></a>
-				        </li>
-				      </ul>
-				    </div>
-            </div>
-
-          </div>
-
-  
+    <div class="row">
+        <div class="card col-6">
+            <div class="card-body">
+  	             <div class="author-card pb-3">
+                     <div class="author-card-cover"></div>
+                         <div class="author-card-profile mt-30" >
+	                           <div class="author-card-details">
+	                                <h5 class="author-card-name text-lg">    
+                                  <h6><%= @profile.first_name %> <%= @profile.last_name %></h6></h5>
+                                  <span class="author-card-position"><%= current_user.created_at %></span>
+	                           </div>
+                             <div class="widget widget-contacts">
+                				      <ul>
+                				        <li>
+                                  <i class="fas fa-home"></i> 				          
+                                  <span> Adress </span>
+                				          <a><%= @profile.street %>,<%= @profile.zip_code %>,<%= @profile.city %></a>
+                				        </li>
+                				        <li>
+                				          <i class="fas fa-at"></i>
+                				          <span> Email </span>
+                				          <a><%= @profile.user.email %></a>
+                				        </li>
+                				        <li>
+                				          <i class="fas fa-phone"></i>
+                				          <span> Number </span>
+                				          <a><%= @profile.phone_number %></a>
+                				        </li>
+                				      </ul>
+                				    </div>
+                         </div>
+                    </div>
+              </div>
 
 
-  </div>
-  <p>
-	<%= link_to "Editer password / email", edit_user_registration_path, class: "btn-dark btn p-1" %>
-	<%= link_to "Editer autres informations", edit_profile_path, class: "btn-dark btn p-1" %>
-</p>
+<!-- Buttons -->
+          <p>
+            	<%= link_to edit_user_registration_path, class: "btn btn-style-4 btn-secondary btn-sm" do%> 
+               <span><i class="fas fa-key"></i> Edit email and/or password </span>
+               <% end %>
 
-</div>
+              <%= link_to edit_profile_path, class: "btn btn-style-4 btn-secondary btn-sm" do%> 
+              <span><i class="fas fa-user-edit"></i> Edit profile information </span>
+               <% end %>
+          </p>
+      </div>
 
-     <!-- Orders Table-->
+
+<!-- Orders Table-->
         <div class="card col-6 ">
-          <div class="table-responsive">
             <table class="table table-hover mb-0">
               <thead>
                 <tr>
                   <th>Order #</th>
+                  <th>Date Purchased</th>
                   <th>Status</th>
                   <th>Total</th>
                 </tr>
@@ -72,13 +78,13 @@
                 <% @cart_all.each_with_index do |order, i| %>
 
                   <td><a class="navi-link" data-toggle="modal"><%=order.id %></a></td>
-                  <td><%=order.status %></td>
-                  <td><span><%=order_amount(order) %>€</span></td>
+                  <td><%=order.created_at %></td>
+                  <td><span class="badge badge-success m-0"><%=order.status %></span>
+                  <td><%=order_amount(order) %>€</td>
                 </tr>
                 <% end %>
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
-     </div>
+    </div>
+</div>
