@@ -1,4 +1,4 @@
-class Admin::ItemsController < ApplicationController
+class Admin::ItemsController < AdminController
   def index
     @items = Item.all.reverse
   end
@@ -53,4 +53,5 @@ class Admin::ItemsController < ApplicationController
     @item.destroy
     redirect_to admin_items_path
   end
+
 end

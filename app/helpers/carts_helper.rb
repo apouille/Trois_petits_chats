@@ -8,7 +8,7 @@ module CartsHelper
 
     subtotal=0
     current_cart.cart_items.each do |cart_item|
-      price = cart_item.item.price
+      price = cart_item.item.price * cart_item.quantity
       subtotal += price
     end
     return subtotal

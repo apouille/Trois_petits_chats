@@ -1,0 +1,66 @@
+
+
+
+<div class="container">
+	<h2>Les commandes validées</h2>
+	<br><br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Statut</th>
+      <th scope="col">Montant</th>
+      <th scope="col">Date</th>
+      <th scope="col">Email Client</th>
+      <th scope="col">Id Client</th>
+      <th scope="col">Détail commande</th>
+    </tr>
+  </thead>
+  <tbody>
+ <% @orders.each do |order| %>
+    <tr>
+      <th scope="row"><%= order.id %></th>
+      <td><%= order.status %> </td>
+      <td><%=order_amount(order) %> €</td>
+      <td><%= order.updated_at %></td>
+      <td><%= order.user.email%></td>  
+      <td><%= order.user.id%></td>
+      <td><%=link_to 'détail de la commande', admin_cart_path(order), class:'btn btn-primary' %></td>
+    </tr>
+<%end%>
+  </tbody>
+</table>
+
+
+<h2>Les paniers en cours</h2>
+
+<br><br>
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Statut</th>
+      <th scope="col">Montant</th>
+      <th scope="col">Date</th>
+      <th scope="col">Email Client</th>
+      <th scope="col">Id Client</th>
+      <th scope="col">Détail commande</th>
+    </tr>
+  </thead>
+  <tbody>
+ <% @carts.each do |cart| %>
+    <tr>
+      <th scope="row"><%= cart.id %></th>
+      <td><%= cart.status %> </td>
+      <td><%= order_amount(cart) %> €</td>
+      <td><%= cart.updated_at %></td>
+      <td><%= cart.user.email%></td>  
+      <td><%= cart.user.id%></td>
+      <td><%=link_to 'Voir le panier', admin_cart_path(cart), class:'btn btn-primary' %></td>
+    </tr>
+<%end%>
+  </tbody>
+</table>
+
+</div>

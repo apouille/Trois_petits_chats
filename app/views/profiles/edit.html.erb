@@ -18,8 +18,10 @@
             <%= f.text_field :zip_code, class: 'form-control', placeholder: 'Code Postal'%></br>
           <small class="text-gray">* Champs obligatoires</small>
           </div>
+
           <div class="form-actions mt-3">
-            <button type="submit" class="btn btn-secondary"> Mettre à jour </button>
+            <button type="submit" class="btn btn-secondary mr-3"> Mettre à jour </button>
+            <%= link_to "Retour au profil", profile_path(@profile.id), class: "btn btn-secondary"%>
           </div>
         <% end %>
     </div>
