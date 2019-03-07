@@ -28,14 +28,14 @@ end
  		phone_number: "0033#{rand(100000000..999999999)}",
  		user: User.all.sample
  	)
-  
+
 end
 
 1.times do
   cart = Cart.create!(
     status: 0,
     user: User.first,
-    )  
+    )
   puts 'cart created'
 end
 
@@ -43,7 +43,7 @@ end
   cart = Cart.create!(
     status: 1,
     user: User.first,
-    )  
+    )
   puts 'cart created'
 end
 
@@ -53,7 +53,7 @@ end
     cart: Cart.first,
     item: Item.all.sample,
     quantity: 1
-    )  
+    )
 end
 
 3.times do
@@ -61,7 +61,7 @@ end
     cart: Cart.last,
     item: Item.all.sample,
     quantity: 1
-    )  
+    )
 end
 
 
