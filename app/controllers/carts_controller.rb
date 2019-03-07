@@ -10,12 +10,12 @@ class CartsController < ApplicationController
 
   def show
   	@cart = Cart.find(params[:id])
-  	@cart_items = @cart.cart_items
+  	@cart_items = @cart.cart_items.order(:id)
     @profile = current_user.profile
 
 	  @subtotal=0
 	  @cart_items.each do |cart_item|
-		  price = cart_item.item.price
+		  price = cart_item.item.price 
 		  @subtotal+=price
 		end
 	end

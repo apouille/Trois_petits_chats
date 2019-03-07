@@ -28,7 +28,7 @@ before_action :verify_user_rights, only: [:show, :edit]
   end
 
   def edit
-  	@user = current_user 
+  	@user = current_user
     @profile = Profile.find_by(user_id: @user.id)
   end
 
@@ -43,7 +43,9 @@ before_action :verify_user_rights, only: [:show, :edit]
   	post_params = params[:profile]
     if @profile.update(first_name: post_params[:first_name], last_name: post_params[:last_name], street: post_params[:street], city: post_params[:city], zip_code: post_params[:zip_code], phone_number: post_params[:phone_number])
       flash[:notice] = "Vous avez bien mis à jour votre profil"
+
       redirect_to request.referrer
+
     else
       if @profile.errors.any?
         @profile.errors.full_messages.each do |message|
@@ -83,6 +85,6 @@ end
     end
   end
 
- 
+
 
 end

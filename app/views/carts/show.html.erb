@@ -30,13 +30,16 @@
       <div class="px-3 my-3 text-center">
         <div class="cart-item-label">Quantity</div>
           <div class="count-input">
-            <select class="form-control">
-              <option>1</option>
-            </select>
+            <%= form_tag cart_item_path(cart_item.id), method: "patch" do %>
+              <%= select_tag(:quantity, options_for_select([['1', 1], ['2', 2], ['3', 3]], selected: cart_item.quantity ), :class => 'form-control') %>
+              <%= button_tag(type: "submit", class: "btn btn-default") do %>
+                  <i class="fas fa-redo-alt"></i>
+              <% end %>
+            <% end %>
           </div>
       </div>
       <div class="px-3 my-3 text-center">
-        <div class="cart-item-label">Price</div><span class="text-xl font-weight-medium"><%=cart_item.item.price %></span>
+        <div class="cart-item-label">Price</div><span class="text-xl font-weight-medium"><%=cart_item.item.price * cart_item.quantity%></span>
       </div>
     </div>
   <%end%> <!-- items panier -->
