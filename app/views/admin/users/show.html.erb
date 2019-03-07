@@ -61,10 +61,10 @@
                             <td><%= order.updated_at %> </td>
                             <td><%= order.id %> </td>
                             <td><%= order.status %> </td>
-                            <td><%= order_amount(cart)%></td>
+                            <td><%= order_amount(order)%></td>
                             <td><%= number_of_items(order)*2 %> €</td>
                             <td><%= order_amount(order) + (number_of_items(order)*2) %></td>
-                            <td><%=link_to 'Détail Commande', admin_cart_path(cart.id), class:"btn btn-secondary"%></td>
+                            <td><%=link_to 'Détail Commande', admin_cart_path(order.id), class:"btn btn-secondary"%></td>
                             </tr>
                       </tbody>
                   <% end %>
