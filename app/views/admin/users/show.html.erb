@@ -34,7 +34,8 @@
             </div>
         </div>
     </div>
-</div>    
+</div> 
+
 <div class="container pt-5">
     <h6 class ="m-3"> Commandes passées </h6>
           <% if @orders[0] == nil %>
@@ -61,13 +62,14 @@
                             <td><%= order_amount(cart)%></td>
                             <td><%= number_of_items(order)*2 %> €</td>
                             <td><%= order_amount(order) + (number_of_items(order)*2) %></td>
-                            <td><%=link_to 'Détail Commande', admin_cart_path(cart.id), class:"btn btn-primary"%></td>
+                            <td><%=link_to 'Détail Commande', admin_cart_path(cart.id), class:"btn btn-secondary"%></td>
                             </tr>
                       </tbody>
                   <% end %>
              </table>
          <% end %>
-</div>         
+</div> 
+        
 <div class="container mb-5 pb-5">         
     <h6 class ="m-3"> Panier en cours </h6>
     <% if @carts[0] == nil %>
@@ -94,7 +96,7 @@
                       <td><%= order_amount(cart)%></td>
                       <td><%= number_of_items(cart)*2 %> €</td>
                       <td><%= order_amount(cart) + (number_of_items(cart)*2) %></td>
-                      <td><%=link_to 'Détail Panier', admin_cart_path(cart.id), class:"btn btn-primary"%>
+                      <td><%=link_to 'Détail Panier', admin_cart_path(cart.id), class:"btn btn-secondary"%>
                       </tr>
                 </tbody>
             <% end %>
