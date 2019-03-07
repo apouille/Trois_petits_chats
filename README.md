@@ -1,6 +1,6 @@
 
 ![alt text](https://media.giphy.com/media/mM08Ca5WLdJw4/giphy.gif)   
-:arrow_up: Toi quand tu push sur Heroku Prod et qu'Heroku t'envoie bouler !
+:arrow_up: Toi quand tu push sur Heroku et qu'Heroku t'envoie bouler !
 
 ## :kissing_cat: Trois Petits Chats - Project 
 
@@ -11,7 +11,7 @@ Voici le lien en production de l'application : <https://troispetitschats.herokua
 ## :information_desk_person: Informations Pratiques 
 
 1. Utilisation du thème Bootstrap Create X  
-2. Création de deux applications Heroku (staging et developpement)
+2. Création de deux applications Heroku (staging et production)
 3. Fonctionnalités bonus : changement de quantité et dashboard admin    
 
 ## :construction_worker: Focus Admin
@@ -22,7 +22,7 @@ email : troispetitschats@yopmail.com
 mot de passe : test1234
 ```
 
-Puis, entre comme url et balade-toi! : <https://troispetitschats.herokuapp.com/admin>  
+Puis, entre comme url <https://troispetitschats.herokuapp.com/admin> et balade-toi!  
 
 Aussi, tu peux ajouter une photo de chaton via l'url suivante : <https://troispetitschats.herokuapp.com/items/new>  
 
