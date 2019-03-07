@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
 before_action :authenticate_user!
+before_action :verify_profile, only: [:show, :edit]
 before_action :verify_user_rights, only: [:show, :edit]
 
   def new
@@ -52,7 +53,7 @@ before_action :verify_user_rights, only: [:show, :edit]
   def show
     @user = User.find(params[:id])
     @profile = Profile.find(params[:id])
-    @cart_all = Cart.all
+    @cart_all = current_user.carts.where(status: 1)
     @cart = Cart.find_by(user_id: current_user.id, status: 1)
   end
 
@@ -62,6 +63,13 @@ before_action :verify_user_rights, only: [:show, :edit]
   	params.permit(:first_name, :last_name, :street, :city, :zip_code, :phone_number)
   end
 
+  def verify_profile
+   unless current_user.profile != nil
+   flash[:error] = "Vous n'avez pas de profile"
+   redirect_to root_path
+  end
+end
+
   def verify_user_rights
     @profile_page = Profile.find(params[:id])
     @profile_user = current_user.profile
@@ -70,5 +78,7 @@ before_action :verify_user_rights, only: [:show, :edit]
     redirect_to root_path
     end
   end
+
+ 
 
 end

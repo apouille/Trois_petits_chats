@@ -6,7 +6,7 @@
       <% if @item.item_picture.attached? %>
         <%= image_tag @item.item_picture, alt: 'item picture' %>
       <% else %>
-      <a class="portfolio-thumb" style="background-image: url(<%= @item.image_url %>);"></a>
+        <a class="portfolio-thumb" style="background-image: url(<%= @item.image_url %>);"></a>
       <% end %>
         <div class="card-body">
           <div class="portfolio-meta">
@@ -40,7 +40,13 @@
     <!--            <button class="btn btn-primary btn-block m-0" type="button" data-toggle="modal" data-target="#modalCentered"><i class="fas fa-shopping-cart"></i>
               </button>  -->
               <% if signed_in?  %>
-                <%= button_to "Add to cart", cart_items_path(params[:id]), method: :post, :class => "btn btn-primary btn-block m-0", "data-toggle" =>"modal", "data-target" => "#modalCentered", remote: true %>
+                <% if new_article? %>
+                  <%= button_to "Add to cart", cart_items_path(params[:id].to_i), method: :post, :class => "btn btn-primary btn-block m-0", "data-toggle" =>"modal", "data-target" => "#modalCentered", remote: true %>
+                  <%else%>
+                    <div class="alert alert-primary" role="alert">
+                    Ce produit est déjà dans votre panier 
+                    </div>
+                  <%end%>
               <% else %>
                 <%= button_to "Login to purchase", new_user_session_path, method: :get, :class => "btn btn-primary btn-block m-0" %>
               <% end %>

@@ -11,7 +11,13 @@
       </span>
       <div class="px-3 my-3">
         <div class="cart-item-product">
-          <div class="cart-item-product-thumb"><img src="<%=cart_item.item.image_url%>" alt="Product"></div>
+          <div class="cart-item-product-thumb">
+            <% if cart_item.item.item_picture.attached? %>
+              <%= image_tag cart_item.item.item_picture, alt: 'item picture' %>
+            <% else %>
+              <img src="<%= cart_item.item.image_url %>" alt="Product">
+            <% end %>
+          </div>
           <div class="cart-item-product-info">
             <h4 class="cart-item-product-title">
               <%= link_to cart_item.item.title, item_path(cart_item.item.id), class:"" %>
@@ -47,28 +53,33 @@
   <div class="col-sm-6 mb-3">
     <%=link_to 'Continuer mes achats', root_path, class:'btn btn-secondary btn-block'%>
   </div>
-
-	<div class="col-sm-6 mb-3">
-    <div id="accordion1">
-      <a class="collapsed btn btn-primary btn-block" href="#collapseOne" data-toggle="collapse"><i class="far fa-credit-card"></i> Valider mon panier</a>
-    </div>
-  </div>
-
+	 <%if number_of_cart_items !=0%>
+		<div class="col-sm-6 mb-3">
+	    <div id="accordion1">
+	      <a class="collapsed btn btn-primary btn-block" href="#collapseOne" data-toggle="collapse"><i class="far fa-credit-card"></i> Valider mon panier</a>
+	    </div>
+	  </div>
+	<%end%>
 </div>
 
-<% if current_user_profile? %>
-  <div class="collapsed" id="collapseOne" data-parent="#accordion1">
-    <div class="card-body">
-        <div class="col-md-12"><%= render 'profiles/edit_form' %></div>
-    </div>
-  </div>
+ <%if number_of_cart_items !=0%>
 
-<% else %>
-  <div class="collapse" id="collapseOne" data-parent="#accordion1">
-    <div class="card-body">
-        <div class="col-md-12"><%= render 'profiles/new_form' %></div>
-    </div>
-  </div>
-<% end %>
+		<% if current_user_profile? %>
+
+			  <div class="collapsed" id="collapseOne" data-parent="#accordion1">
+			    <div class="card-body">
+			    <div class="col-md-12"><%= render 'profiles/edit_form' %></div>
+			    </div>
+			  </div>
+
+		<% else %>
+			  <div class="collapse" id="collapseOne" data-parent="#accordion1">
+			    <div class="card-body">
+			    <div class="col-md-12"><%= render 'profiles/new_form' %></div>
+			    </div>
+			  </div>
+
+		<% end %>
+<%end %>
 
 </div> <!-- container -->
