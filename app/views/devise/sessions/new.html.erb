@@ -3,7 +3,8 @@
     <div class="col-md-6 offset-md-3">
       <br><br><br>
 
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= simple_form_for(resource, as: resource_name,  url: session_path(resource_name)) do |f| %>
+        <div class='beautiful-devise'>
         <h1 class="h3 mb-3 font-weight-normal text-center">Se connecter</h1>
           <div class="form-group">
             <%= f.label :email %>
@@ -25,9 +26,11 @@
             <%= f.button :submit, "Log in", class:"btn btn-lg btn-primary btn-block" %>
           </div>
         <% end %>
+        <br>
+        <br>
 
         <%= render "devise/shared/links" %>
-
+      </div>
     </div>
   </div>
 </div>
