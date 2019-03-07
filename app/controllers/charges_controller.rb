@@ -2,6 +2,8 @@ class ChargesController < ApplicationController
 
 before_action :authenticate_user!
 after_action :confirmation_send, only: [:create]
+after_action :new_order_send, only: [:create]
+
 	def new
 			@cart = current_cart
 	end
@@ -36,6 +38,11 @@ after_action :confirmation_send, only: [:create]
 		def confirmation_send
 			@items = current_user.carts.last.cart_items
       UserMailer.confirmation_email(current_user, @items).deliver_now
+    end
+
+		def new_order_send
+			@cart_items = current_user.carts.last.cart_items
+      AdminMailer.new_order_email(current_user, @cart_items).deliver_now
     end
 
 end
