@@ -1,7 +1,5 @@
 <%= render 'banner' %>
 
-<!-- Card Top Image -->
-<!-- Cards Layout: Deck -->
 <div class="row mt-5 mx-md-3">
 
   <!-- Card -->
@@ -17,12 +15,11 @@
       <h4 class="card-title"><%= item.title %></h4>
       <p class="card-text"> Description : <%= item.description %></p>
       <p class="card-text"> Price : <%= item.price %> €</p>
-
     </div>
     <div class="card-footer text-muted text-sm">
-        <%= link_to "Plus d'infos", item_path(item.id), :class => "btn btn-style-6 btn-gradient" %>    </div>
+        <%= link_to "Voir le produit", item_path(item.id), :class => "btn btn-style-6 btn-gradient" %>    </div>
   </div>
   </div>
   <% end %>
 
-</div>
+</div> <!-- fin row -->
