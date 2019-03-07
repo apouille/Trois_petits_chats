@@ -21,13 +21,13 @@
             </li>
 
             <!-- Account-->
-            <li class="nav-item dropdown-toggle"><a class="nav-link">Account</a>
+            <li class="nav-item dropdown-toggle"><a class="nav-link">Mon compte</a>
                 <ul class="dropdown-menu">
                     <%if user_signed_in?%>
-                      <li class="dropdown-item">  <%= link_to "Edit email / password", edit_user_registration_path %> </li>
+                      <li class="dropdown-item">  <%= link_to "Changer l'email / le mot de passe", edit_user_registration_path %> </li>
                     <%if current_user_profile?%>
-                      <li class="dropdown-item">  <%= link_to "My orders", profile_path(current_user.profile.id) %> </li> <% end %>
-                      <li class="dropdown-item"> <%= link_to "Log out", destroy_user_session_path, method: :delete %> </li>
+                      <li class="dropdown-item">  <%= link_to "Mes commandes", profile_path(current_user.profile.id) %> </li> <% end %>
+                      <li class="dropdown-item"> <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %> </li>
 
                      <% else %>
                       <li class="dropdown-item"> <%= link_to "Log In", new_user_session_path, class:"dropdown-item" %></li>
