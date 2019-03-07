@@ -5,9 +5,6 @@
 	)
 end
 
-<<<<<<< HEAD
-=======
-
 20.times do
    item = Item.create!(
    	title: Faker::Creature::Cat.breed,
@@ -21,7 +18,6 @@ end
 end
 
 
->>>>>>> delivery
 1.times do
  	profile = Profile.create!(
  		first_name: Faker::Name.first_name,
@@ -32,9 +28,6 @@ end
  		phone_number: "0033#{rand(100000000..999999999)}",
  		user: User.first
  	)
-<<<<<<< HEAD
-=======
-
 end
 
 1.times do
@@ -64,5 +57,4 @@ end
     user: User.last,
     )
   puts 'cart created'
->>>>>>> delivery
 end
